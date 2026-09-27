@@ -23,8 +23,8 @@ final class Validator {
 	public const MAX_URL           = 500;
 	public const MAX_LEAD_DAYS     = 365;
 
-	public const LAYOUTS     = [ 'table', 'list', 'compact' ];
-	public const TIME_STYLES = [ '24h', '24h-short', '12h' ];
+	public const LAYOUTS     = [ 'table', 'list', 'compact', 'paragraphs' ];
+	public const TIME_STYLES = [ '24h', '24h-suffix', '24h-short', '12h' ];
 
 	public const SCHEMA_TYPES = [
 		'LocalBusiness',
@@ -135,6 +135,7 @@ final class Validator {
 			'show_notes'      => true,
 			'time_style'      => '24h',
 			'week_mode'       => 'current',
+			'show_holidays'   => true,
 		];
 	}
 
@@ -150,6 +151,10 @@ final class Validator {
 	public static function holidays_defaults( string $state = 'SN' ): array {
 		return [
 			'state'    => $state,
+			'default'  => [
+				'mode' => HolidaySettings::CLOSED,
+				'day'  => null,
+			],
 			'rules'    => [],
 			'regional' => [],
 		];
@@ -437,6 +442,13 @@ final class Validator {
 			}
 		}
 
+		$default_raw  = (array) ( $raw['default'] ?? [] );
+		$default_mode = $this->enum( (string) ( $default_raw['mode'] ?? HolidaySettings::CLOSED ), HolidaySettings::MODES, HolidaySettings::CLOSED, $path . '.default.mode', 'invalid_mode' );
+		$default      = [
+			'mode' => $default_mode,
+			'day'  => HolidaySettings::CUSTOM === $default_mode ? $this->day( (array) ( $default_raw['day'] ?? [] ), $path . '.default.day' ) : null,
+		];
+
 		$rules = [];
 		foreach ( (array) ( $raw['rules'] ?? [] ) as $id => $rule ) {
 			$id = (string) $id;
@@ -447,10 +459,11 @@ final class Validator {
 			if ( ! is_array( $rule ) ) {
 				continue;
 			}
-			$mode = $this->enum( (string) ( $rule['mode'] ?? HolidaySettings::CLOSED ), HolidaySettings::MODES, HolidaySettings::CLOSED, $path . '.rules.' . $id . '.mode', 'invalid_mode' );
-			if ( HolidaySettings::CLOSED === $mode ) {
-				continue; // Closed is the default; storing it would only add noise.
+			$mode = (string) ( $rule['mode'] ?? HolidaySettings::USE_DEFAULT );
+			if ( '' === $mode || HolidaySettings::USE_DEFAULT === $mode ) {
+				continue; // Follows the default rule; nothing to store.
 			}
+			$mode         = $this->enum( $mode, HolidaySettings::MODES, HolidaySettings::CLOSED, $path . '.rules.' . $id . '.mode', 'invalid_mode' );
 			$rules[ $id ] = [
 				'mode' => $mode,
 				'day'  => HolidaySettings::CUSTOM === $mode ? $this->day( (array) ( $rule['day'] ?? [] ), $path . '.rules.' . $id . '.day' ) : null,
@@ -459,6 +472,7 @@ final class Validator {
 
 		return [
 			'state'    => $state,
+			'default'  => $default,
 			'rules'    => $rules,
 			'regional' => $regional,
 		];
@@ -473,6 +487,7 @@ final class Validator {
 			'show_notes'      => $this->bool( $raw['show_notes'] ?? $defaults['show_notes'] ),
 			'time_style'      => $this->enum( (string) ( $raw['time_style'] ?? $defaults['time_style'] ), self::TIME_STYLES, $defaults['time_style'], $path . '.time_style', 'invalid_time_style' ),
 			'week_mode'       => $this->enum( (string) ( $raw['week_mode'] ?? $defaults['week_mode'] ), [ 'current', 'regular' ], $defaults['week_mode'], $path . '.week_mode', 'invalid_mode' ),
+			'show_holidays'   => $this->bool( $raw['show_holidays'] ?? $defaults['show_holidays'] ),
 		];
 	}
 

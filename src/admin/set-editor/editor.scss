@@ -223,3 +223,30 @@
 	margin: 2px 0;
 	user-select: all;
 }
+
+.rmd-oh-editor .rmd-oh-week__toolbar {
+	display: flex;
+	justify-content: flex-end;
+	padding: 4px 0 8px;
+}
+
+.rmd-oh-editor .rmd-oh-holidays__default {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px 16px;
+	align-items: flex-end;
+	margin: 12px 0;
+	padding: 12px;
+	background: #f6f7f7;
+	border-radius: 2px;
+}
+
+.rmd-oh-import__actions {
+	display: flex;
+	gap: 8px;
+	margin: 12px 0;
+}
+
+.rmd-oh-import__preview th {
+	width: 12em;
+}

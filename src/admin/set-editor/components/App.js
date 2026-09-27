@@ -91,6 +91,18 @@ export default function App( { config, initial, onChange } ) {
 									config={ config }
 									week={ data.regular }
 									onChange={ update( 'regular' ) }
+									onImport={ ( { week, holidayDefault } ) =>
+										setData( ( prev ) => ( {
+											...prev,
+											regular: week,
+											holidays: holidayDefault
+												? {
+														...prev.holidays,
+														default: holidayDefault,
+													}
+												: prev.holidays,
+										} ) )
+									}
 								/>
 							</>
 						);

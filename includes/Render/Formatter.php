@@ -39,12 +39,16 @@ final class Formatter {
 	}
 
 	public function slot( Slot $slot ): string {
-		$range = sprintf(
-			/* translators: 1: opening time, 2: closing time */
-			_x( '%1$s–%2$s', 'time range', 'rmd-opening-hours' ),
-			$this->time( $slot->start ),
-			$this->time( $slot->end )
-		);
+		$start = $this->time( $slot->start );
+		$end   = $this->time( $slot->end );
+
+		if ( '24h-suffix' === $this->time_style ) {
+			/* translators: 1: opening time, 2: closing time; spaced range with unit, e.g. "08:00 – 12:00 h" */
+			return sprintf( _x( '%1$s – %2$s h', 'spaced time range with suffix', 'rmd-opening-hours' ), $start, $end );
+		}
+
+		/* translators: 1: opening time, 2: closing time */
+		$range = sprintf( _x( '%1$s–%2$s', 'time range', 'rmd-opening-hours' ), $start, $end );
 		if ( '24h-short' === $this->time_style ) {
 			/* translators: %s: time range in short 24-hour style, e.g. "9–18" */
 			$range = sprintf( _x( '%s h', 'short time range suffix', 'rmd-opening-hours' ), $range );
@@ -79,8 +83,11 @@ final class Formatter {
 			return $label( $days[0] );
 		}
 		return sprintf(
-			/* translators: 1: first weekday, 2: last weekday */
-			_x( '%1$s–%2$s', 'weekday range', 'rmd-opening-hours' ),
+			$short
+				/* translators: 1: first weekday, 2: last weekday (abbreviated) */
+				? _x( '%1$s–%2$s', 'weekday range', 'rmd-opening-hours' )
+				/* translators: 1: first weekday, 2: last weekday (full names) */
+				: _x( '%1$s – %2$s', 'weekday range long', 'rmd-opening-hours' ),
 			$label( $days[0] ),
 			$label( $days[ count( $days ) - 1 ] )
 		);

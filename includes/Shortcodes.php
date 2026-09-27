@@ -2,7 +2,7 @@
 /**
  * Shortcodes mirroring the three blocks.
  *
- * [rmd_opening_hours set="shop" layout="table|list|compact" group="yes|no" today="yes|no" notes="yes|no" time_style="24h|24h-short|12h" week="current|regular" title="yes|no" class=""]
+ * [rmd_opening_hours set="shop" layout="table|list|compact" group="yes|no" today="yes|no" notes="yes|no" time_style="24h|24h-short|12h" week="current|regular" holidays="yes|no" title="yes|no" class=""]
  * [rmd_opening_hours_notice set="shop|all" lead_days="7" template="" dismissible="yes|no" class=""]
  * [rmd_opening_hours_status set="shop" next="yes|no" class=""]
  *
@@ -43,6 +43,7 @@ final class Shortcodes {
 				'notes'      => '',
 				'time_style' => '',
 				'week'       => '',
+				'holidays'   => '',
 				'title'      => 'no',
 				'class'      => '',
 			],
@@ -64,6 +65,7 @@ final class Shortcodes {
 				'show_notes'      => $atts['notes'],
 				'time_style'      => sanitize_key( $atts['time_style'] ),
 				'week_mode'       => sanitize_key( $atts['week'] ),
+				'show_holidays'   => $atts['holidays'],
 				'show_title'      => Renderer::to_bool( $atts['title'] ),
 				'class'           => self::css_class( $atts['class'] ),
 			]

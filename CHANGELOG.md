@@ -5,6 +5,16 @@ All notable changes to this plugin are documented here. The format follows
 
 ## [Unreleased]
 
+## [0.1.3] – 2026-09-27
+
+### Added
+
+- **Import from text** in the set editor: paste a copied table, list or sentence such as “Dienstag, Donnerstag: 7 - 16 Uhr”; the parser recognises German and English day names, ranges, lists, several slots per day, “geschlossen”, “nach Vereinbarung” and holiday lines, and shows a preview before applying.
+- **“Public holidays” row** after Sunday (table, list, compact and paragraphs), backed by a new default rule for all holidays (closed by default) in the Holidays tab. Single holidays can still override it. Toggle per set, block (“Show ‘Public holidays’ row”) or shortcode (`holidays="no"`).
+- **Layout “Paragraphs”**: full day names in bold, one line per time slot, note as its own paragraph.
+- **Time format “24-hour with unit”**: `08:00 – 12:00 Uhr`.
+- Jest tests for the text parser (`npm run test:js`), also run in CI.
+
 ## [0.1.2] – 2026-09-27
 
 ### Fixed

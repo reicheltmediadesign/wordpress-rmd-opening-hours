@@ -95,6 +95,10 @@ export function normalizeSet( raw, config ) {
 			: [],
 		holidays: {
 			state: holidays.state || config.defaultState,
+			default: {
+				mode: holidays.default?.mode || 'closed',
+				day: normalizeDay( holidays.default?.day ),
+			},
 			rules: Object.fromEntries(
 				Object.entries( holidays.rules || {} ).map(
 					( [ id, rule ] ) => [
