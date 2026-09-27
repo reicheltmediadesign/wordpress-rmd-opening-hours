@@ -1,0 +1,37 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "rmd-opening-hours/opening-hours",
+	"version": "0.1.0",
+	"title": "Opening Hours",
+	"category": "widgets",
+	"icon": "clock",
+	"description": "Shows the opening hours of a set as a table, list or single line.",
+	"keywords": [ "opening hours", "business hours", "Öffnungszeiten" ],
+	"textdomain": "rmd-opening-hours",
+	"attributes": {
+		"setId": { "type": "number", "default": 0 },
+		"layout": { "type": "string", "default": "" },
+		"groupDays": { "type": "string", "default": "" },
+		"highlightToday": { "type": "string", "default": "" },
+		"showNotes": { "type": "string", "default": "" },
+		"timeStyle": { "type": "string", "default": "" },
+		"weekMode": { "type": "string", "default": "" },
+		"showTitle": { "type": "boolean", "default": false },
+		"isPreview": { "type": "boolean", "default": false }
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ],
+		"color": { "background": true, "text": true, "link": true },
+		"typography": { "fontSize": true, "lineHeight": true },
+		"spacing": { "margin": true, "padding": true }
+	},
+	"example": { "attributes": { "isPreview": true } },
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "rmd-oh-front-style",
+	"viewScript": "rmd-oh-front",
+	"render": "file:./render.php"
+}

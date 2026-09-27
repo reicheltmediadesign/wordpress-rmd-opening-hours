@@ -1,0 +1,1742 @@
+# Copyright (C) 2026 Philipp Reichelt, reichelt media.design
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: RMD Opening Hours 0.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/rmd-opening-hours\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-09-27T11:13:58+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: rmd-opening-hours\n"
+
+#. Plugin Name of the plugin
+#: rmd-opening-hours.php
+msgid "RMD Opening Hours"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: rmd-opening-hours.php
+msgid "https://github.com/reicheltmediadesign/wordpress-rmd-opening-hours"
+msgstr ""
+
+#. Description of the plugin
+#: rmd-opening-hours.php
+msgid "Manage regular and seasonal opening hours, show them as a block or shortcode, and announce upcoming changes automatically."
+msgstr ""
+
+#. Author of the plugin
+#: rmd-opening-hours.php
+msgid "Philipp Reichelt, reichelt media.design"
+msgstr ""
+
+#. Author URI of the plugin
+#: rmd-opening-hours.php
+msgid "https://reicheltmedia.design"
+msgstr ""
+
+#: includes/Admin/ExportImportPage.php:31
+#: includes/Admin/ExportImportPage.php:54
+msgid "Import/Export Opening Hours"
+msgstr ""
+
+#: includes/Admin/ExportImportPage.php:32
+#: includes/Admin/HelpPage.php:93
+#: includes/Admin/HelpPage.php:326
+msgid "Import/Export"
+msgstr ""
+
+#: includes/Admin/ExportImportPage.php:51
+msgid "You are not allowed to import or export opening hours."
+msgstr ""
+
+#: includes/Admin/ExportImportPage.php:62
+msgid "Export"
+msgstr ""
+
+#: includes/Admin/ExportImportPage.php:63
+msgid "Downloads all sets (regular hours, periods, holiday rules, display settings) and the plugin settings as a JSON file."
+msgstr ""
+
+#: includes/Admin/ExportImportPage.php:67
+msgid "Download export"
+msgstr ""
+
+#: includes/Admin/ExportImportPage.php:70
+msgid "Import"
+msgstr ""
+
+#: includes/Admin/ExportImportPage.php:71
+msgid "Sets are matched by their slug: existing sets are overwritten, new ones are created. You will see a summary before anything is written."
+msgstr ""
+
+#: includes/Admin/ExportImportPage.php:76
+msgid "Upload and preview"
+msgstr ""
+
+#. translators: 1: number of created sets, 2: number of updated sets
+#: includes/Admin/ExportImportPage.php:91
+#, php-format
+msgid "Import finished: %1$d sets created, %2$d sets updated."
+msgstr ""
+
+#: includes/Admin/ExportImportPage.php:107
+#: includes/Admin/ExportImportPage.php:190
+msgid "The uploaded preview has expired. Please upload the file again."
+msgstr ""
+
+#: includes/Admin/ExportImportPage.php:111
+msgid "Import preview"
+msgstr ""
+
+#: includes/Admin/ExportImportPage.php:112
+msgid "Set"
+msgstr ""
+
+#: includes/Admin/ExportImportPage.php:112
+msgid "Slug"
+msgstr ""
+
+#: includes/Admin/ExportImportPage.php:112
+#: includes/Admin/HelpPage.php:85
+#: includes/Admin/HelpPage.php:198
+#: includes/Admin/ListTable.php:37
+#: includes/Admin/Notices.php:109
+#: build/admin/set-editor.js:3
+msgid "Periods"
+msgstr ""
+
+#: includes/Admin/ExportImportPage.php:112
+msgid "Remarks"
+msgstr ""
+
+#: includes/Admin/ExportImportPage.php:130
+msgid "Also import the plugin settings (lead time, notice text, …)"
+msgstr ""
+
+#: includes/Admin/ExportImportPage.php:132
+msgid "Import now"
+msgstr ""
+
+#: includes/Admin/ExportImportPage.php:133
+msgid "Cancel"
+msgstr ""
+
+#: includes/Admin/ExportImportPage.php:139
+msgid "You are not allowed to export opening hours."
+msgstr ""
+
+#: includes/Admin/ExportImportPage.php:154
+#: includes/Admin/ExportImportPage.php:183
+msgid "You are not allowed to import opening hours."
+msgstr ""
+
+#: includes/Admin/ExportImportPage.php:160
+msgid "No file was uploaded."
+msgstr ""
+
+#: includes/Admin/ExportImportPage.php:163
+#: includes/ExportImport.php:55
+msgid "The file is larger than 1 MB."
+msgstr ""
+
+#: includes/Admin/ExportImportPage.php:168
+msgid "The file could not be read."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:29
+#: includes/Admin/HelpPage.php:54
+msgid "Opening Hours Help"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:30
+msgid "Help"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:49
+msgid "You are not allowed to view this page."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:55
+msgid "This plugin lets you maintain your opening hours in one place and show them anywhere on the website. Changes such as holidays or seasonal hours are planned ahead and announced automatically."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:82
+#: includes/Admin/HelpPage.php:167
+msgid "Quick start"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:83
+#: includes/Admin/HelpPage.php:178
+msgid "Sets"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:84
+#: includes/Admin/HelpPage.php:184
+#: includes/Admin/HelpPage.php:221
+#: includes/Admin/Notices.php:105
+#: build/admin/set-editor.js:3
+msgid "Regular hours"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:86
+#: includes/Admin/HelpPage.php:215
+#: includes/Admin/ListTable.php:39
+#: includes/Admin/Notices.php:112
+#: build/admin/set-editor.js:3
+msgid "Holidays"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:87
+#: includes/Admin/HelpPage.php:229
+#: build/admin/set-editor.js:3
+msgid "Display"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:88
+#: includes/Admin/HelpPage.php:244
+#: includes/Admin/SettingsPage.php:85
+#: build/admin/set-editor.js:3
+msgid "Structured data"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:89
+#: includes/Admin/HelpPage.php:249
+msgid "Blocks"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:90
+#: includes/Admin/HelpPage.php:263
+msgid "Shortcodes"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:91
+#: includes/Admin/HelpPage.php:290
+msgid "Notice text and placeholders"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:92
+#: includes/Admin/HelpPage.php:308
+#: includes/Admin/SettingsPage.php:33
+msgid "Settings"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:94
+#: includes/Admin/HelpPage.php:331
+msgid "Questions and answers"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:169
+msgid "Go to Opening Hours → Add set, give it a name (e.g. “Shop”) and enter your weekly hours."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:170
+msgid "Check the Holidays tab: choose your federal state and decide for each holiday whether you are closed."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:171
+msgid "Save. Then edit the page where the hours should appear and add the block “Opening Hours” (or paste the shortcode shown next to the set)."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:172
+msgid "Add the block “Opening Hours Notice” to the start page or the header area once; it stays invisible until a planned change is due."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:173
+msgid "Before a holiday or vacation, add a period in the Periods tab. The notice appears automatically ahead of time and disappears afterwards."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:179
+msgid "A set is one complete collection of opening hours. Most sites need just one. Create several sets if you have different hours for different things, for example “Practice” and “Phone hours”, or two locations. Blocks and shortcodes always refer to one set; the <strong>default set</strong> (see Settings) is used when nothing is specified."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:180
+msgid "The set name is what visitors may see as a heading. The <strong>slug</strong> shown in the list and in the sidebar box is the technical name used in shortcodes; it is derived from the name when the set is first saved and does not change afterwards."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:185
+msgid "The weekly hours that apply whenever no period and no holiday says otherwise. Each weekday has one of three modes:"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:188
+#: includes/Admin/HelpPage.php:220
+#: build/admin/set-editor.js:1
+#: build/admin/set-editor.js:3
+msgid "Closed"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:188
+msgid "The day is shown as closed."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:189
+#: build/admin/set-editor.js:1
+msgid "Open"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:189
+msgid "Enter one or more <strong>time slots</strong>, e.g. 08:00–12:00 and 14:00–18:00 for a lunch break. Times use the 24-hour format HH:MM. An end time earlier than the start time (e.g. 18:00–02:00) means the slot runs into the next day; use 24:00 for “until midnight”."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:190
+#: build/admin/set-editor.js:1
+msgid "Text"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:190
+msgid "Shows a text instead of times, e.g. “by appointment” or “on request”."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:191
+#: includes/Admin/HelpPage.php:206
+#: build/admin/set-editor.js:1
+#: build/admin/set-editor.js:2
+msgid "Note"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:191
+msgid "Optional remark shown next to the hours of that day, e.g. “Emergency service only”. Notes can be hidden in the display options."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:192
+#: build/admin/set-editor.js:1
+msgid "Copy to Tue–Fri"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:192
+msgid "Copies Monday’s entry to Tuesday through Friday to save typing."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:199
+msgid "Periods are date ranges with different hours: vacation, company holidays, reduced summer hours, extended hours before Christmas, a training day. They are planned in advance and take effect on their own. Past periods are hidden in the editor but kept."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:202
+#: build/admin/set-editor.js:1
+msgid "Name"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:202
+msgid "Shown in the notice and used as the row label in the editor, e.g. “Summer break”."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:203
+msgid "From / Until (inclusive)"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:203
+msgid "First and last day of the period. A single day has the same start and end date."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:204
+#: build/admin/set-editor.js:1
+msgid "During this period"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:204
+msgid "<strong>Closed</strong> – closed on every day of the range. <strong>Same hours every day</strong> – one set of time slots that applies to every day, e.g. 10:00–14:00 between the years. <strong>Different weekly hours</strong> – a complete alternative week, e.g. summer hours."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:205
+#: build/admin/set-editor.js:1
+msgid "Lead time for the notice (days)"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:205
+msgid "How many days before the start the notice block starts announcing this period. Empty uses the value from the settings."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:206
+msgid "Optional text shown with the hours and available as {note} in the notice, e.g. an emergency phone number."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:207
+#: build/admin/set-editor.js:2
+msgid "Repeats every year (same dates)"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:207
+msgid "For fixed yearly closures such as 24 December – 2 January. The year of the dates does not matter; ranges may span the turn of the year."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:208
+#: build/admin/set-editor.js:2
+msgid "Also open on public holidays in this period"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:208
+msgid "Normally a public holiday inside a period with alternative hours still follows the holiday rule (usually closed). Tick this if the period’s hours should apply on holidays too, e.g. a Christmas market stall."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:211
+msgid "<strong>Which hours win?</strong> On any given day the plugin checks in this order: 1. a period marked “closed”, 2. a public holiday (unless its rule is “regular hours” or the period ignores holidays), 3. a period with alternative hours (the shorter, more specific one first), 4. the regular weekly hours."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:216
+msgid "German public holidays are calculated automatically for the chosen <strong>federal state</strong>, including moveable feasts such as Easter and Whitsun, and the Day of Repentance in Saxony. Some holidays apply only in parts of a state (e.g. Corpus Christi in Catholic communities of Saxony and Thuringia, Assumption Day and the Augsburg Peace Festival in Bavaria); tick them under <strong>regional holidays</strong> if they apply to you."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:217
+msgid "For each holiday choose a rule:"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:220
+msgid "The default. The day is shown as closed with the holiday’s name as a note."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:221
+msgid "The holiday is ignored; the normal weekday hours apply (e.g. restaurants, petrol stations)."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:222
+#: build/admin/set-editor.js:3
+msgid "Special hours"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:222
+msgid "Enter the time slots that apply on this holiday, e.g. a bakery open 07:00–10:00 on Easter Sunday."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:225
+msgid "The table shows the dates for the current and the next year so you can check them. Holidays are included in the “current week” view, in the notice-free status and in the structured data; they do not create notices."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:230
+msgid "Defaults for how this set is shown. Every block and shortcode can override each option individually."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:233
+#: build/admin/set-editor.js:3
+#: build/blocks/opening-hours/index.js:1
+msgid "Layout"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:233
+msgid "<strong>Table</strong> – one row per day (group), best for sidebars and contact pages. <strong>List</strong> – definition list with the same content, useful when tables look heavy in your theme. <strong>Compact</strong> – everything in a single line, e.g. “Mon–Fri 9–18 h · Sat 9–12 h”, for footers."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:234
+#: build/admin/set-editor.js:3
+#: build/blocks/opening-hours/index.js:1
+msgid "Time format"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:234
+msgid "24-hour (09:00–18:00), short 24-hour (9–18 h, minutes only when needed) or 12-hour (9:00 am–6:00 pm)."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:235
+#: build/admin/set-editor.js:3
+msgid "Week shown"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:235
+msgid "<strong>Current week</strong> shows Monday to Sunday of this week with holidays and periods already applied, so a visitor sees what really applies. <strong>Regular hours only</strong> always shows the plain weekly schedule; combine it with the notice block to announce deviations."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:236
+msgid "Group days with equal hours"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:236
+msgid "Merges consecutive days with identical hours into one row, e.g. “Mon–Fri”. Days that differ (a holiday, a note) start a new row."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:237
+#: build/admin/set-editor.js:3
+#: build/blocks/opening-hours/index.js:1
+msgid "Highlight today"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:237
+msgid "Marks today’s row so it can be styled (bold background by default)."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:238
+#: build/admin/set-editor.js:3
+#: build/blocks/opening-hours/index.js:1
+msgid "Show notes"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:238
+msgid "Shows the notes of days, periods and holiday names below the hours."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:245
+msgid "Optionally the plugin adds machine-readable opening hours (schema.org “openingHoursSpecification”, including upcoming exceptions) to the page so search engines can show them. Enter the business type, name and website URL. Leave this <strong>off</strong> if an SEO plugin (e.g. Yoast Local SEO, Rank Math) already describes your business, otherwise search engines may see two different businesses."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:250
+msgid "In the block editor search for “Opening Hours”. All three blocks pick the set in the sidebar and support colors, typography and spacing from your theme."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:252
+msgid "Block"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:252
+msgid "Shows"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:252
+msgid "Options"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:254
+#: includes/PostType.php:28
+#: includes/PostType.php:30
+msgid "Opening Hours"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:254
+msgid "The hours of a set."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:254
+msgid "Set, set name as heading, layout, week shown, time format, grouping, highlight today, notes. “Set default” uses the set’s display settings."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:255
+msgid "Opening Hours Notice"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:255
+msgid "Announcements for upcoming and running periods. Empty when nothing is due."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:255
+msgid "Set (or all sets), lead time, dismissible, own text template."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:256
+msgid "Open Now Status"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:256
+msgid "“Open now · closes at 18:00” or “Closed now · opens tomorrow at 09:00”, updated live in the visitor’s browser."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:256
+msgid "Set, show next opening/closing time."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:259
+msgid "The notice block shows a grey hint in the editor when no notice is due; visitors never see that hint. Place the block once on the start page or in the header/footer template so every announcement appears there automatically."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:264
+msgid "Shortcodes do the same as the blocks and can be used in classic editors, widgets, page builders and theme templates. Attributes are optional; omitted ones use the set’s display settings."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:270
+msgid "Attribute"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:270
+msgid "Values"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:270
+#: includes/Admin/ListTable.php:36
+msgid "Shortcode"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:272
+msgid "Slug or ID of the set. Empty = default set. <code>all</code> = every set (notice only)."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:272
+#: includes/Admin/HelpPage.php:284
+msgid "all"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:275
+msgid "merge consecutive days with equal hours"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:276
+msgid "highlight today"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:277
+msgid "show notes"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:279
+msgid "show the set name as heading"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:280
+msgid "Days before a period starts; <code>0</code> = plugin setting"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:281
+msgid "Own text with placeholders, see below"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:282
+msgid "visitors may close the notice"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:283
+msgid "show next opening or closing time"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:284
+msgid "Additional CSS classes for styling"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:291
+msgid "The notice text is defined once in the settings and can be overridden per block or shortcode. It may contain the HTML tags strong, em, br, a and span. Placeholders are replaced for each period:"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:293
+msgid "Placeholder"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:293
+msgid "Replaced by"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:295
+msgid "Name of the period"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:296
+msgid "First day, in the site’s date format"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:297
+msgid "Last day"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:298
+msgid "“closed”, the daily hours, or a summary of the alternative week such as “Mon–Fri 10:00–14:00”"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:299
+msgid "The period’s note (empty if none)"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:300
+msgid "Name of the set"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:303
+msgid "Example: <code>&lt;strong&gt;{name}&lt;/strong&gt; from {start} to {end}: {hours}. {note}</code>"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:304
+msgid "A notice becomes visible the configured number of days before the period starts, stays visible while it runs and disappears at the end of its last day. If visitors may dismiss notices, a closed notice stays hidden in that browser until the period is over."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:311
+#: includes/Admin/SettingsPage.php:44
+msgid "Default set"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:311
+msgid "Used by blocks and shortcodes that do not name a set."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:312
+#: includes/Admin/SettingsPage.php:45
+msgid "Federal state for new sets"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:312
+msgid "Preselected in the Holidays tab of new sets."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:313
+#: includes/Admin/SettingsPage.php:46
+msgid "Time format for the status"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:313
+msgid "How times appear in “closes at 18:00”."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:314
+#: includes/Admin/SettingsPage.php:51
+#: build/blocks/notice/index.js:1
+msgid "Lead time (days)"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:314
+msgid "Default number of days a notice appears before a period; each period can override it."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:315
+#: includes/Admin/SettingsPage.php:60
+msgid "Notice text"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:315
+msgid "Template with placeholders, see above."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:316
+#: includes/Admin/SettingsPage.php:61
+msgid "Visitors can dismiss notices"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:316
+msgid "Adds a close button to notices."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:317
+msgid "Pre-render horizon / Status horizon"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:317
+msgid "Technical settings for caching plugins: how far ahead notices and opening intervals are embedded in the page so that cached pages still switch at the right time. The defaults (30 and 14 days) suit almost every site."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:318
+#: includes/Admin/SettingsPage.php:86
+msgid "Output JSON-LD on every page"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:318
+msgid "Adds the structured data of enabled sets to every page instead of only pages that show the set."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:319
+#: includes/Admin/SettingsPage.php:89
+msgid "Roles that may manage opening hours"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:319
+msgid "Administrators always have access. Tick further roles (e.g. Editor or Shop Manager) that should see this menu. Only administrators can change this."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:320
+#: includes/Admin/SettingsPage.php:92
+msgid "Delete all sets and settings when the plugin is deleted"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:320
+msgid "Off by default so that deleting the plugin by accident does not lose your data."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:327
+msgid "Export downloads all sets and the settings as a JSON file – handy as a backup or to copy the configuration from a staging site to the live site. Import shows a preview first; sets are matched by their slug, existing sets are overwritten and new ones created. Nothing is deleted. Site-specific settings (default set, roles, uninstall behaviour) are never changed by an import."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:334
+msgid "The website still shows old hours after I saved."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:334
+msgid "Your site probably uses a caching plugin. The plugin asks the common caches to refresh when you save, but some need a manual “purge cache”. The “open now” status and notices switch correctly even on cached pages."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:335
+msgid "I want to announce a change without changing the hours yet."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:335
+msgid "Create a period with a start date in the future. The notice block announces it from the lead time onwards while the regular hours keep applying until the start date."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:336
+msgid "We are open on a holiday this year only."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:336
+msgid "Add a period for that single day with “same hours every day” and tick “also open on public holidays in this period”."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:337
+msgid "We close early on one specific day."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:337
+msgid "Add a single-day period with “same hours every day” and the reduced time slot. Add a short lead time so visitors are warned."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:338
+msgid "How do I style the output?"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:338
+msgid "Use the block’s color and typography settings, or add CSS in your theme: the table uses the class <code>rmd-oh</code>, notices <code>rmd-oh-notice</code>, the status <code>rmd-oh-status</code>. Colors and spacing are exposed as CSS custom properties, see the README on GitHub."
+msgstr ""
+
+#: includes/Admin/HelpPage.php:339
+msgid "Where do I get help?"
+msgstr ""
+
+#: includes/Admin/HelpPage.php:339
+msgid "Contact reichelt media.design (https://reicheltmedia.design). Please mention which set and which page is affected."
+msgstr ""
+
+#: includes/Admin/ListTable.php:38
+msgid "Next change"
+msgstr ""
+
+#. translators: %s: end date
+#: includes/Admin/ListTable.php:78
+#, php-format
+msgid "until %s"
+msgstr ""
+
+#. translators: 1: start date, 2: end date
+#: includes/Admin/ListTable.php:80
+#, php-format
+msgid "%1$s – %2$s"
+msgstr ""
+
+#: includes/Admin/Notices.php:49
+msgid "Some opening hours could not be saved as entered:"
+msgstr ""
+
+#. translators: %d: number of additional errors
+#: includes/Admin/Notices.php:54
+#, php-format
+msgid "… and %d more."
+msgstr ""
+
+#: includes/Admin/Notices.php:65
+msgid "Invalid time. Use the format HH:MM."
+msgstr ""
+
+#: includes/Admin/Notices.php:66
+msgid "Start and end time must differ."
+msgstr ""
+
+#: includes/Admin/Notices.php:67
+msgid "Time slots overlap."
+msgstr ""
+
+#: includes/Admin/Notices.php:68
+msgid "An open day needs at least one time slot; the day was set to closed."
+msgstr ""
+
+#. translators: %d: maximum number of slots
+#: includes/Admin/Notices.php:69
+#, php-format
+msgid "At most %d time slots per day are allowed."
+msgstr ""
+
+#. translators: %d: maximum number of slots
+#: includes/Admin/Notices.php:70
+msgid "Enter a text (e.g. “by appointment”) or choose another mode; the day was set to closed."
+msgstr ""
+
+#: includes/Admin/Notices.php:71
+msgid "Invalid date."
+msgstr ""
+
+#: includes/Admin/Notices.php:72
+msgid "The end date is before the start date; the period was dropped."
+msgstr ""
+
+#: includes/Admin/Notices.php:73
+msgid "A yearly recurring period may not be longer than one year; the period was dropped."
+msgstr ""
+
+#: includes/Admin/Notices.php:74
+msgid "Every period needs a name."
+msgstr ""
+
+#. translators: %d: maximum number of periods
+#: includes/Admin/Notices.php:75
+#, php-format
+msgid "At most %d periods are allowed."
+msgstr ""
+
+#. translators: %d: maximum number of periods
+#: includes/Admin/Notices.php:76
+msgid "Unknown mode; the default was used."
+msgstr ""
+
+#: includes/Admin/Notices.php:77
+msgid "Unknown federal state; the default was used."
+msgstr ""
+
+#: includes/Admin/Notices.php:78
+msgid "Unknown holiday; the rule was ignored."
+msgstr ""
+
+#: includes/Admin/Notices.php:79
+msgid "Unknown layout; the default was used."
+msgstr ""
+
+#: includes/Admin/Notices.php:80
+msgid "Unknown time format; the default was used."
+msgstr ""
+
+#: includes/Admin/Notices.php:81
+msgid "Unknown business type; “LocalBusiness” was used."
+msgstr ""
+
+#: includes/Admin/Notices.php:82
+msgid "Invalid URL (only http and https are allowed)."
+msgstr ""
+
+#: includes/Admin/Notices.php:83
+msgid "Please enter a whole number."
+msgstr ""
+
+#: includes/Admin/Notices.php:84
+msgid "The editor data could not be read; nothing was changed. Please reload the page and try again."
+msgstr ""
+
+#. translators: 1: minimum, 2: maximum
+#: includes/Admin/Notices.php:85
+#, php-format
+msgid "The value must be between %1$d and %2$d."
+msgstr ""
+
+#: includes/Admin/Notices.php:88
+msgid "Invalid value."
+msgstr ""
+
+#. translators: %d: period number
+#: includes/Admin/Notices.php:109
+#, php-format
+msgid "Period %d"
+msgstr ""
+
+#: includes/Admin/Notices.php:121
+msgid "Time slots"
+msgstr ""
+
+#. translators: %d: slot number
+#: includes/Admin/Notices.php:121
+#, php-format
+msgid "Slot %d"
+msgstr ""
+
+#: includes/Admin/SetMetaBox.php:36
+#: build/blocks/opening-hours/index.js:1
+msgid "Opening hours"
+msgstr ""
+
+#: includes/Admin/SetMetaBox.php:44
+msgid "Show on the website"
+msgstr ""
+
+#: includes/Admin/SetMetaBox.php:53
+msgid "Name of this set, e.g. “Shop” or “Phone hours”"
+msgstr ""
+
+#: includes/Admin/SetMetaBox.php:62
+msgid "The opening hours editor needs JavaScript."
+msgstr ""
+
+#: includes/Admin/SetMetaBox.php:63
+msgid "Loading editor …"
+msgstr ""
+
+#: includes/Admin/SetMetaBox.php:70
+msgid "Save the set to get its shortcode."
+msgstr ""
+
+#: includes/Admin/SetMetaBox.php:73
+msgid "Block editor: add the blocks “Opening Hours”, “Opening Hours Notice” or “Open Now Status” and pick this set."
+msgstr ""
+
+#: includes/Admin/SetMetaBox.php:74
+msgid "Shortcodes:"
+msgstr ""
+
+#: includes/Admin/SetMetaBox.php:81
+msgid "All fields, options and shortcode attributes are explained on the Help page."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:32
+#: includes/Admin/SettingsPage.php:114
+msgid "Opening Hours Settings"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:43
+msgid "General"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:48
+msgid "Notices"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:57
+msgid "How many days before a period starts the notice appears. Each period can override this."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:60
+msgid "Placeholders: {name}, {start}, {end}, {hours}, {note}, {set}. Allowed HTML: strong, em, br, a, span."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:64
+msgid "Pre-render horizon (days)"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:70
+msgid "Notices starting within this many days are embedded (hidden) so cached pages can reveal them on time."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:75
+msgid "Status horizon (days)"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:81
+msgid "How many days of opening intervals the “open now” status embeds for cached pages."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:86
+msgid "Otherwise it is only added to pages that show the set. Applies to sets with structured data enabled."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:88
+msgid "Access"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:91
+msgid "Uninstall"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:96
+msgid "Administrators always have access. Tick the roles that should also see the Opening Hours menu and edit sets, settings and imports."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:98
+msgid "Only administrators can change this."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:103
+msgid "The notice block announces planned periods automatically and disappears when they are over."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:107
+msgid "Structured data is enabled per set in the set editor. Leave it off if your SEO plugin already describes the business, to avoid duplicate entities."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:112
+msgid "You are not allowed to change these settings."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:170
+msgid "always"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:195
+msgid "Enabled"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:209
+msgid "First set (alphabetically)"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:215
+msgid "Used when a block or shortcode does not name a set."
+msgstr ""
+
+#: includes/Blocks.php:58
+msgid "RMD Opening Hours: the block assets are missing. Run “npm install && npm run build” in the plugin folder, or install a release package."
+msgstr ""
+
+#: includes/Blocks.php:109
+msgid "No notice is scheduled right now. This block stays empty on the website until a period comes within its lead time."
+msgstr ""
+
+#: includes/Blocks.php:156
+msgid "No opening hours set found. Create one under Opening Hours in the admin menu, then select it in the block settings."
+msgstr ""
+
+#: includes/ExportImport.php:60
+msgid "This is not an RMD Opening Hours export file."
+msgstr ""
+
+#: includes/ExportImport.php:63
+msgid "The file contains more than 50 sets."
+msgstr ""
+
+#: includes/Labels.php:21
+msgid "New Year’s Day"
+msgstr ""
+
+#: includes/Labels.php:22
+msgid "Epiphany"
+msgstr ""
+
+#: includes/Labels.php:23
+msgid "International Women’s Day"
+msgstr ""
+
+#: includes/Labels.php:24
+msgid "Good Friday"
+msgstr ""
+
+#: includes/Labels.php:25
+msgid "Easter Sunday"
+msgstr ""
+
+#: includes/Labels.php:26
+msgid "Easter Monday"
+msgstr ""
+
+#: includes/Labels.php:27
+msgid "Labour Day"
+msgstr ""
+
+#: includes/Labels.php:28
+msgid "Ascension Day"
+msgstr ""
+
+#: includes/Labels.php:29
+msgid "Whit Sunday"
+msgstr ""
+
+#: includes/Labels.php:30
+msgid "Whit Monday"
+msgstr ""
+
+#: includes/Labels.php:31
+msgid "Corpus Christi"
+msgstr ""
+
+#: includes/Labels.php:32
+msgid "Augsburg Peace Festival"
+msgstr ""
+
+#: includes/Labels.php:33
+msgid "Assumption Day"
+msgstr ""
+
+#: includes/Labels.php:34
+msgid "World Children’s Day"
+msgstr ""
+
+#: includes/Labels.php:35
+msgid "German Unity Day"
+msgstr ""
+
+#: includes/Labels.php:36
+msgid "Reformation Day"
+msgstr ""
+
+#: includes/Labels.php:37
+msgid "All Saints’ Day"
+msgstr ""
+
+#: includes/Labels.php:38
+msgid "Day of Repentance and Prayer"
+msgstr ""
+
+#: includes/Labels.php:39
+msgid "Christmas Day"
+msgstr ""
+
+#: includes/Labels.php:40
+msgid "Boxing Day"
+msgstr ""
+
+#: includes/Labels.php:53
+msgid "Baden-Württemberg"
+msgstr ""
+
+#: includes/Labels.php:54
+msgid "Bavaria"
+msgstr ""
+
+#: includes/Labels.php:55
+msgid "Berlin"
+msgstr ""
+
+#: includes/Labels.php:56
+msgid "Brandenburg"
+msgstr ""
+
+#: includes/Labels.php:57
+msgid "Bremen"
+msgstr ""
+
+#: includes/Labels.php:58
+msgid "Hamburg"
+msgstr ""
+
+#: includes/Labels.php:59
+msgid "Hesse"
+msgstr ""
+
+#: includes/Labels.php:60
+msgid "Mecklenburg-Vorpommern"
+msgstr ""
+
+#: includes/Labels.php:61
+msgid "Lower Saxony"
+msgstr ""
+
+#: includes/Labels.php:62
+msgid "North Rhine-Westphalia"
+msgstr ""
+
+#: includes/Labels.php:63
+msgid "Rhineland-Palatinate"
+msgstr ""
+
+#: includes/Labels.php:64
+msgid "Saarland"
+msgstr ""
+
+#: includes/Labels.php:65
+msgid "Saxony"
+msgstr ""
+
+#: includes/Labels.php:66
+msgid "Saxony-Anhalt"
+msgstr ""
+
+#: includes/Labels.php:67
+msgid "Schleswig-Holstein"
+msgstr ""
+
+#: includes/Labels.php:68
+msgid "Thuringia"
+msgstr ""
+
+#: includes/Labels.php:96
+#: build/blocks/opening-hours/index.js:1
+msgid "Table"
+msgstr ""
+
+#: includes/Labels.php:97
+#: build/blocks/opening-hours/index.js:1
+msgid "List"
+msgstr ""
+
+#: includes/Labels.php:98
+#: build/blocks/opening-hours/index.js:1
+msgid "Compact (one line)"
+msgstr ""
+
+#: includes/Labels.php:107
+#: build/blocks/opening-hours/index.js:1
+msgid "24-hour (09:00–18:00)"
+msgstr ""
+
+#: includes/Labels.php:108
+#: build/blocks/opening-hours/index.js:1
+msgid "24-hour, short (9–18)"
+msgstr ""
+
+#: includes/Labels.php:109
+#: build/blocks/opening-hours/index.js:1
+msgid "12-hour (9:00 am–6:00 pm)"
+msgstr ""
+
+#: includes/PostType.php:29
+#: build/blocks/notice/index.js:1
+#: build/blocks/opening-hours/index.js:1
+#: build/blocks/status/index.js:1
+msgid "Opening hours set"
+msgstr ""
+
+#: includes/PostType.php:31
+#: build/blocks/notice/index.js:1
+#: build/blocks/opening-hours/index.js:1
+#: build/blocks/status/index.js:1
+msgid "All sets"
+msgstr ""
+
+#: includes/PostType.php:32
+msgid "Add set"
+msgstr ""
+
+#: includes/PostType.php:33
+msgid "Add new set"
+msgstr ""
+
+#: includes/PostType.php:34
+msgid "Edit set"
+msgstr ""
+
+#: includes/PostType.php:35
+msgid "New set"
+msgstr ""
+
+#: includes/PostType.php:36
+msgid "View set"
+msgstr ""
+
+#: includes/PostType.php:37
+msgid "Search sets"
+msgstr ""
+
+#: includes/PostType.php:38
+msgid "No sets found. Create one to start managing opening hours."
+msgstr ""
+
+#: includes/PostType.php:39
+msgid "No sets in the trash."
+msgstr ""
+
+#: includes/PostType.php:40
+#: includes/PostType.php:43
+msgid "Set saved."
+msgstr ""
+
+#: includes/PostType.php:41
+msgid "Set updated."
+msgstr ""
+
+#: includes/PostType.php:42
+msgid "Set moved to the trash."
+msgstr ""
+
+#: includes/PostType.php:44
+msgid "Set reverted to draft."
+msgstr ""
+
+#: includes/PostType.php:46
+msgid "Named sets of opening hours managed by RMD Opening Hours."
+msgstr ""
+
+#. translators: 1: opening time, 2: closing time
+#: includes/Render/Formatter.php:44
+#, php-format
+msgctxt "time range"
+msgid "%1$s–%2$s"
+msgstr ""
+
+#. translators: %s: time range in short 24-hour style, e.g. "9–18"
+#: includes/Render/Formatter.php:50
+#, php-format
+msgctxt "short time range suffix"
+msgid "%s h"
+msgstr ""
+
+#: includes/Render/Formatter.php:65
+#: includes/Render/NoticeRenderer.php:131
+#: includes/Render/NoticeRenderer.php:148
+msgid "closed"
+msgstr ""
+
+#. translators: 1: first weekday, 2: last weekday
+#: includes/Render/Formatter.php:83
+#, php-format
+msgctxt "weekday range"
+msgid "%1$s–%2$s"
+msgstr ""
+
+#: includes/Render/NoticeRenderer.php:100
+msgid "Dismiss this notice"
+msgstr ""
+
+#: includes/Render/StatusRenderer.php:99
+msgid "Open now"
+msgstr ""
+
+#: includes/Render/StatusRenderer.php:100
+msgid "Closed now"
+msgstr ""
+
+#. translators: %s: closing time
+#: includes/Render/StatusRenderer.php:102
+#, php-format
+msgid "closes at %s"
+msgstr ""
+
+#. translators: %s: opening time
+#: includes/Render/StatusRenderer.php:104
+#, php-format
+msgid "opens today at %s"
+msgstr ""
+
+#. translators: %s: opening time
+#: includes/Render/StatusRenderer.php:106
+#, php-format
+msgid "opens tomorrow at %s"
+msgstr ""
+
+#. translators: 1: weekday, 2: opening time
+#: includes/Render/StatusRenderer.php:108
+#, php-format
+msgid "opens %1$s at %2$s"
+msgstr ""
+
+#: includes/Render/StatusRenderer.php:109
+msgctxt "status separator"
+msgid " · "
+msgstr ""
+
+#: includes/Rest/StatusController.php:65
+#: includes/Rest/StatusController.php:90
+msgid "Unknown opening hours set."
+msgstr ""
+
+#: includes/Shortcodes.php:168
+msgid "RMD Opening Hours: no matching set found. This message is only visible to editors."
+msgstr ""
+
+#. translators: 1: required PHP version, 2: current PHP version
+#: rmd-opening-hours.php:38
+#, php-format
+msgid "RMD Opening Hours requires PHP %1$s or newer. This site runs PHP %2$s, so the plugin stays inactive."
+msgstr ""
+
+#: build/admin/set-editor.js:1
+msgid "Text (e.g. by appointment)"
+msgstr ""
+
+#: build/admin/set-editor.js:1
+msgid "Mode"
+msgstr ""
+
+#. translators: %d: slot number
+#: build/admin/set-editor.js:1
+#, js-format
+msgid "Opens (slot %d)"
+msgstr ""
+
+#. translators: %d: slot number
+#: build/admin/set-editor.js:1
+#, js-format
+msgid "Closes (slot %d)"
+msgstr ""
+
+#: build/admin/set-editor.js:1
+msgid "Remove slot"
+msgstr ""
+
+#: build/admin/set-editor.js:1
+msgid "Add slot"
+msgstr ""
+
+#: build/admin/set-editor.js:1
+msgid "e.g. by appointment"
+msgstr ""
+
+#: build/admin/set-editor.js:1
+msgid "Note (optional)"
+msgstr ""
+
+#: build/admin/set-editor.js:1
+msgid "Same hours every day"
+msgstr ""
+
+#: build/admin/set-editor.js:1
+msgid "Different weekly hours"
+msgstr ""
+
+#: build/admin/set-editor.js:1
+msgid "past"
+msgstr ""
+
+#: build/admin/set-editor.js:1
+msgid "running"
+msgstr ""
+
+#: build/admin/set-editor.js:1
+msgid "upcoming"
+msgstr ""
+
+#: build/admin/set-editor.js:1
+msgid "yearly"
+msgstr ""
+
+#: build/admin/set-editor.js:1
+msgid "The end date is before the start date."
+msgstr ""
+
+#: build/admin/set-editor.js:1
+msgid "Please enter valid dates."
+msgstr ""
+
+#: build/admin/set-editor.js:1
+msgid "(unnamed period)"
+msgstr ""
+
+#: build/admin/set-editor.js:1
+msgid "every year"
+msgstr ""
+
+#: build/admin/set-editor.js:1
+msgid "Collapse"
+msgstr ""
+
+#: build/admin/set-editor.js:1
+msgid "Expand"
+msgstr ""
+
+#: build/admin/set-editor.js:1
+msgid "Remove period"
+msgstr ""
+
+#: build/admin/set-editor.js:1
+msgid "Remove this period?"
+msgstr ""
+
+#: build/admin/set-editor.js:1
+msgid "Shown in the notice, e.g. “Summer break”."
+msgstr ""
+
+#: build/admin/set-editor.js:1
+msgid "From"
+msgstr ""
+
+#: build/admin/set-editor.js:1
+msgid "Until (inclusive)"
+msgstr ""
+
+#. translators: %d: default lead time
+#: build/admin/set-editor.js:2
+#, js-format
+msgid "Empty = plugin default (%d days)."
+msgstr ""
+
+#: build/admin/set-editor.js:2
+msgid "Optional, shown with the hours and in the notice."
+msgstr ""
+
+#: build/admin/set-editor.js:2
+msgid "Otherwise the holiday rules win over these hours."
+msgstr ""
+
+#: build/admin/set-editor.js:2
+msgid "Hours on every day of the period:"
+msgstr ""
+
+#: build/admin/set-editor.js:2
+msgid "Weekly hours during the period:"
+msgstr ""
+
+#: build/admin/set-editor.js:2
+msgid "Plan holidays, reduced or extended hours. The notice block announces each period ahead of time and disappears automatically when it is over."
+msgstr ""
+
+#: build/admin/set-editor.js:2
+msgid "No upcoming periods."
+msgstr ""
+
+#: build/admin/set-editor.js:2
+msgid "Add period"
+msgstr ""
+
+#: build/admin/set-editor.js:2
+msgid "Hide past periods"
+msgstr ""
+
+#. translators: %d: number of past periods
+#: build/admin/set-editor.js:3
+#, js-format
+msgid "Show %d past periods"
+msgstr ""
+
+#: build/admin/set-editor.js:3
+msgid "Public holidays are calculated automatically. Decide per holiday whether you are closed, keep your regular hours or open with special hours."
+msgstr ""
+
+#: build/admin/set-editor.js:3
+msgid "Federal state"
+msgstr ""
+
+#: build/admin/set-editor.js:3
+msgid "Regional holidays that apply to you"
+msgstr ""
+
+#: build/admin/set-editor.js:3
+msgid "Holiday"
+msgstr ""
+
+#: build/admin/set-editor.js:3
+msgid "Rule"
+msgstr ""
+
+#: build/admin/set-editor.js:3
+msgid "Defaults for this set. Every block and shortcode can override them."
+msgstr ""
+
+#: build/admin/set-editor.js:3
+#: build/blocks/opening-hours/index.js:1
+msgid "Current week (with holidays and periods)"
+msgstr ""
+
+#: build/admin/set-editor.js:3
+#: build/blocks/opening-hours/index.js:1
+msgid "Regular hours only"
+msgstr ""
+
+#: build/admin/set-editor.js:3
+#: build/blocks/opening-hours/index.js:1
+msgid "Group days with equal hours (Mon–Fri)"
+msgstr ""
+
+#: build/admin/set-editor.js:3
+msgid "Adds schema.org structured data (openingHoursSpecification) for search engines. Leave this off if your SEO plugin already describes your business, otherwise Google may see two businesses."
+msgstr ""
+
+#: build/admin/set-editor.js:3
+msgid "Output structured data for this set"
+msgstr ""
+
+#: build/admin/set-editor.js:3
+msgid "Business type"
+msgstr ""
+
+#: build/admin/set-editor.js:3
+msgid "Business name"
+msgstr ""
+
+#: build/admin/set-editor.js:3
+msgid "Empty = site title."
+msgstr ""
+
+#: build/admin/set-editor.js:3
+msgid "Website URL"
+msgstr ""
+
+#: build/admin/set-editor.js:3
+msgid "Empty = home page."
+msgstr ""
+
+#: build/admin/set-editor.js:3
+msgid "The weekly hours that apply unless a period or holiday says otherwise. Add several time slots for breaks (e.g. 08:00–12:00 and 14:00–18:00). An end time earlier than the start means “until the next morning”."
+msgstr ""
+
+#: build/blocks/notice/index.js:1
+#: build/blocks/opening-hours/index.js:1
+#: build/blocks/status/index.js:1
+msgid "Default set (see settings)"
+msgstr ""
+
+#: build/blocks/notice/index.js:1
+#: build/blocks/opening-hours/index.js:1
+#: build/blocks/status/index.js:1
+msgid "No sets yet. Create one under Opening Hours in the admin menu."
+msgstr ""
+
+#: build/blocks/notice/index.js:1
+#: build/blocks/opening-hours/index.js:1
+msgid "Set default"
+msgstr ""
+
+#: build/blocks/notice/index.js:1
+#: build/blocks/opening-hours/index.js:1
+msgid "Yes"
+msgstr ""
+
+#: build/blocks/notice/index.js:1
+#: build/blocks/opening-hours/index.js:1
+msgid "No"
+msgstr ""
+
+#: build/blocks/notice/index.js:1
+msgid "Notice"
+msgstr ""
+
+#: build/blocks/notice/index.js:1
+msgid "0 uses the plugin setting. Periods can override this individually."
+msgstr ""
+
+#: build/blocks/notice/index.js:1
+msgid "Visitors can dismiss the notice"
+msgstr ""
+
+#: build/blocks/notice/index.js:1
+msgid "Text template"
+msgstr ""
+
+#: build/blocks/notice/index.js:1
+msgid "Leave empty to use the plugin setting. Placeholders: {name}, {start}, {end}, {hours}, {note}, {set}."
+msgstr ""
+
+#: build/blocks/opening-hours/index.js:1
+msgid "Show set name as heading"
+msgstr ""
+
+#: build/blocks/opening-hours/index.js:1
+msgid "Week"
+msgstr ""
+
+#: build/blocks/status/index.js:1
+msgid "Status"
+msgstr ""
+
+#: build/blocks/status/index.js:1
+msgid "Show next opening or closing time"
+msgstr ""
+
+#: build/blocks/notice/block.json
+msgctxt "block title"
+msgid "Opening Hours Notice"
+msgstr ""
+
+#: build/blocks/notice/block.json
+msgctxt "block description"
+msgid "Automatically announces upcoming changes of the opening hours and disappears when they are over."
+msgstr ""
+
+#: build/blocks/notice/block.json
+#: build/blocks/opening-hours/block.json
+#: build/blocks/status/block.json
+msgctxt "block keyword"
+msgid "opening hours"
+msgstr ""
+
+#: build/blocks/notice/block.json
+msgctxt "block keyword"
+msgid "notice"
+msgstr ""
+
+#: build/blocks/notice/block.json
+msgctxt "block keyword"
+msgid "holiday"
+msgstr ""
+
+#: build/blocks/notice/block.json
+#: build/blocks/opening-hours/block.json
+#: build/blocks/status/block.json
+msgctxt "block keyword"
+msgid "Öffnungszeiten"
+msgstr ""
+
+#: build/blocks/notice/block.json
+msgctxt "block keyword"
+msgid "Hinweis"
+msgstr ""
+
+#: build/blocks/opening-hours/block.json
+msgctxt "block title"
+msgid "Opening Hours"
+msgstr ""
+
+#: build/blocks/opening-hours/block.json
+msgctxt "block description"
+msgid "Shows the opening hours of a set as a table, list or single line."
+msgstr ""
+
+#: build/blocks/opening-hours/block.json
+msgctxt "block keyword"
+msgid "business hours"
+msgstr ""
+
+#: build/blocks/status/block.json
+msgctxt "block title"
+msgid "Open Now Status"
+msgstr ""
+
+#: build/blocks/status/block.json
+msgctxt "block description"
+msgid "Live indicator whether the business is open right now, with the next closing or opening time."
+msgstr ""
+
+#: build/blocks/status/block.json
+msgctxt "block keyword"
+msgid "open now"
+msgstr ""
+
+#: build/blocks/status/block.json
+msgctxt "block keyword"
+msgid "status"
+msgstr ""
+
+#: build/blocks/status/block.json
+msgctxt "block keyword"
+msgid "geöffnet"
+msgstr ""

@@ -1,0 +1,32 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "rmd-opening-hours/notice",
+	"version": "0.1.0",
+	"title": "Opening Hours Notice",
+	"category": "widgets",
+	"icon": "megaphone",
+	"description": "Automatically announces upcoming changes of the opening hours and disappears when they are over.",
+	"keywords": [ "opening hours", "notice", "holiday", "Öffnungszeiten", "Hinweis" ],
+	"textdomain": "rmd-opening-hours",
+	"attributes": {
+		"setId": { "type": "number", "default": 0 },
+		"leadDays": { "type": "number", "default": 0 },
+		"template": { "type": "string", "default": "" },
+		"dismissible": { "type": "string", "default": "" },
+		"isPreview": { "type": "boolean", "default": false }
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ],
+		"color": { "background": true, "text": true, "link": true },
+		"typography": { "fontSize": true, "lineHeight": true },
+		"spacing": { "margin": true, "padding": true }
+	},
+	"example": { "attributes": { "isPreview": true } },
+	"editorScript": "file:./index.js",
+	"style": "rmd-oh-front-style",
+	"viewScript": "rmd-oh-front",
+	"render": "file:./render.php"
+}

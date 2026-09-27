@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  php:
+    name: PHP lint, PHPCS, PHPUnit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.1"
+          coverage: none
+          tools: composer:v2
+
+      - name: Install Composer dependencies
+        run: composer install --no-interaction --no-progress
+
+      - name: PHP syntax check
+        run: |
+          find . -path ./vendor -prune -o -path ./node_modules -prune -o -name '*.php' -print0 \
+            | xargs -0 -n1 -P4 php -l > /dev/null
+
+      - name: PHPCS
+        run: vendor/bin/phpcs
+
+      - name: PHPUnit
+        run: vendor/bin/phpunit
+
+  js:
+    name: Build, lint JS and CSS
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run build
+
+      - name: Check build output
+        run: |
+          test -f build/blocks-manifest.php
+          test -f build/blocks/opening-hours/render.php
+          test -f build/admin/set-editor.js
