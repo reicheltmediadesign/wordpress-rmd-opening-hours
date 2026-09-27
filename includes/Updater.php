@@ -1,8 +1,9 @@
 <?php
 /**
- * Update checks against GitHub releases. Only the release asset named
- * rmd-opening-hours.zip is used, never GitHub's automatic source archive
- * (its top-level folder would not match the plugin slug).
+ * Update checks. Instead of the GitHub REST API (60 unauthenticated requests
+ * per hour and IP, which shared hosts exhaust quickly) the checker reads a
+ * small update.json that the release workflow attaches to every release.
+ * "releases/latest/download/…" is a plain web redirect and not rate limited.
  *
  * @package RMD\OpeningHours
  */
@@ -13,7 +14,8 @@ defined( 'ABSPATH' ) || exit;
 
 final class Updater {
 
-	public const REPOSITORY = 'https://github.com/reicheltmediadesign/wordpress-rmd-opening-hours/';
+	public const REPOSITORY   = 'https://github.com/reicheltmediadesign/wordpress-rmd-opening-hours/';
+	public const METADATA_URL = self::REPOSITORY . 'releases/latest/download/update.json';
 
 	public static function init(): void {
 		$factory = '\\YahnisElsts\\PluginUpdateChecker\\v5\\PucFactory';
@@ -21,11 +23,6 @@ final class Updater {
 			return;
 		}
 
-		$checker = $factory::buildUpdateChecker( self::REPOSITORY, RMD_OH_FILE, 'rmd-opening-hours' );
-
-		$api = method_exists( $checker, 'getVcsApi' ) ? $checker->getVcsApi() : null;
-		if ( $api && method_exists( $api, 'enableReleaseAssets' ) ) {
-			$api->enableReleaseAssets( '/^rmd-opening-hours\.zip$/i' );
-		}
+		$factory::buildUpdateChecker( self::METADATA_URL, RMD_OH_FILE, 'rmd-opening-hours' );
 	}
 }

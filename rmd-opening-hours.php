@@ -3,7 +3,7 @@
  * Plugin Name:       RMD Opening Hours
  * Plugin URI:        https://github.com/reicheltmediadesign/wordpress-rmd-opening-hours
  * Description:       Manage regular and seasonal opening hours, show them as a block or shortcode, and announce upcoming changes automatically.
- * Version:           0.1.1
+ * Version:           0.1.2
  * Requires at least: 6.8
  * Requires PHP:      8.1
  * Author:            Philipp Reichelt, reichelt media.design
@@ -21,7 +21,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'RMD_OH_VERSION', '0.1.1' );
+define( 'RMD_OH_VERSION', '0.1.2' );
 define( 'RMD_OH_FILE', __FILE__ );
 define( 'RMD_OH_DIR', plugin_dir_path( __FILE__ ) );
 define( 'RMD_OH_URL', plugin_dir_url( __FILE__ ) );

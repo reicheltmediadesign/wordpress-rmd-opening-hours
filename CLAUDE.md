@@ -38,7 +38,7 @@ Lokal testen: `.\bin\link-local.ps1` legt eine Junction in `wp-content\plugins` 
 ## Git und Release
 
 - Committen nur auf Anfrage, auf Feature-Branches; nie direkt auf `main`.
-- Release: Versionen an allen Stellen erhöhen, `CHANGELOG.md` und `readme.txt` (Changelog) ergänzen, committen, Tag `vX.Y.Z` pushen. Der Workflow lintet, testet, baut Assets + Übersetzungen, erzeugt `rmd-opening-hours.zip` und legt ein **Draft-Release** an.
+- Release: Versionen an allen Stellen erhöhen, `CHANGELOG.md` und `readme.txt` (Changelog) ergänzen, committen, Tag `vX.Y.Z` pushen. Der Workflow lintet, testet, baut Assets + Übersetzungen, erzeugt `rmd-opening-hours.zip` sowie `update.json` und legt ein **Draft-Release** an. Beide Assets müssen am Release bleiben: installierte Sites lesen `releases/latest/download/update.json` (kein GitHub-API-Aufruf, daher kein Rate-Limit); der Changelog darin kommt aus `CHANGELOG.md`.
 - Den vom Workflow angelegten Entwurf bearbeiten (Releases → Entwurf → Stift), nicht neu anlegen; erst nach Test des ZIPs veröffentlichen. Kunden-Sites sehen nur veröffentlichte Releases (plugin-update-checker nutzt `releases/latest`).
 - Bei jedem Release Titel `vX.Y.Z – <Kernänderung>` und Release Notes (Englisch, Markdown in Codeblock) mit ausgeben; Grundlage `git log <letzter Tag>..HEAD`.
 - `gh` ist lokal nicht installiert: Workflow-Status über `https://api.github.com/repos/reicheltmediadesign/wordpress-rmd-opening-hours/actions/runs`, Releases über `.../releases`.

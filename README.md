@@ -27,7 +27,7 @@ WordPress 6.8 or newer, PHP 8.1 or newer.
 3. Open **Opening Hours → Add set**, enter a name (e.g. "Shop") and your weekly hours.
 4. Add the blocks to a page, or paste the shortcode shown next to the set.
 
-Later releases are offered under Dashboard → Updates like any other plugin.
+Later releases are offered under Dashboard → Updates like any other plugin. The check reads a small `update.json` attached to the latest release (no GitHub API calls, so no rate limits on shared hosting).
 
 ## Usage
 
