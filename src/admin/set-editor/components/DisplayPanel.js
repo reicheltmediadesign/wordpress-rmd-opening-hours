@@ -80,6 +80,19 @@ export default function DisplayPanel( { config, value, onChange } ) {
 					onChange={ ( next ) => set( { show_notes: next } ) }
 					__nextHasNoMarginBottom
 				/>
+				<ToggleControl
+					label={ __(
+						'Show a “Public holidays” row after Sunday',
+						'rmd-opening-hours'
+					) }
+					help={ __(
+						'Shows the rule for all holidays from the Holidays tab; hidden when holidays follow the regular hours.',
+						'rmd-opening-hours'
+					) }
+					checked={ !! value.show_holidays }
+					onChange={ ( next ) => set( { show_holidays: next } ) }
+					__nextHasNoMarginBottom
+				/>
 			</div>
 		</div>
 	);

@@ -13,11 +13,19 @@ const LAYOUTS = [
 		value: 'compact',
 		label: __( 'Compact (one line)', 'rmd-opening-hours' ),
 	},
+	{
+		value: 'paragraphs',
+		label: __( 'Paragraphs (written out)', 'rmd-opening-hours' ),
+	},
 ];
 
 const TIME_STYLES = [
 	{ value: '', label: __( 'Set default', 'rmd-opening-hours' ) },
 	{ value: '24h', label: __( '24-hour (09:00–18:00)', 'rmd-opening-hours' ) },
+	{
+		value: '24h-suffix',
+		label: __( '24-hour with unit (08:00 – 12:00 h)', 'rmd-opening-hours' ),
+	},
 	{
 		value: '24h-short',
 		label: __( '24-hour, short (9–18)', 'rmd-opening-hours' ),
@@ -120,6 +128,16 @@ export default function Edit( { attributes, setAttributes } ) {
 						value={ attributes.showNotes }
 						onChange={ ( showNotes ) =>
 							setAttributes( { showNotes } )
+						}
+					/>
+					<TriStateControl
+						label={ __(
+							'Show “Public holidays” row',
+							'rmd-opening-hours'
+						) }
+						value={ attributes.showHolidays }
+						onChange={ ( showHolidays ) =>
+							setAttributes( { showHolidays } )
 						}
 					/>
 				</PanelBody>

@@ -75,6 +75,44 @@ final class ScheduleTest extends TestCase {
 		self::assertSame( '10:00', $result->spec->slots[0]->start );
 	}
 
+	public function test_holiday_default_rule_applies_without_override(): void {
+		$set = SetFactory::shop(
+			[
+				'holidays' => [
+					'default' => [
+						'mode' => 'custom',
+						'day'  => [
+							'mode'  => 'open',
+							'slots' => [
+								[
+									'start' => '10:00',
+									'end'   => '12:00',
+								],
+							],
+						],
+					],
+					'rules'   => [
+						'reformationstag' => [
+							'mode' => 'closed',
+							'day'  => null,
+						],
+					],
+				],
+			]
+		);
+
+		$unity = Schedule::resolve( $set, '2026-10-03' );
+		self::assertSame( DayResult::SOURCE_HOLIDAY, $unity->source );
+		self::assertSame( '10:00', $unity->spec->slots[0]->start );
+
+		$reformation = Schedule::resolve( $set, '2026-10-31' );
+		self::assertTrue( $reformation->spec->is_closed(), 'An explicit override beats the default.' );
+
+		$regular_default = SetFactory::shop( [ 'holidays' => [ 'default' => [ 'mode' => 'regular', 'day' => null ] ] ] );
+		self::assertSame( DayResult::SOURCE_REGULAR, Schedule::resolve( $regular_default, '2026-10-03' )->source );
+		self::assertNull( $regular_default->holidays->default_spec() );
+	}
+
 	public function test_closed_period_beats_everything(): void {
 		$set = SetFactory::shop(
 			[

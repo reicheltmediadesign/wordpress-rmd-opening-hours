@@ -93,9 +93,10 @@ final class Labels {
 	 */
 	public static function layouts(): array {
 		return [
-			'table'   => __( 'Table', 'rmd-opening-hours' ),
-			'list'    => __( 'List', 'rmd-opening-hours' ),
-			'compact' => __( 'Compact (one line)', 'rmd-opening-hours' ),
+			'table'      => __( 'Table', 'rmd-opening-hours' ),
+			'list'       => __( 'List', 'rmd-opening-hours' ),
+			'compact'    => __( 'Compact (one line)', 'rmd-opening-hours' ),
+			'paragraphs' => __( 'Paragraphs (written out)', 'rmd-opening-hours' ),
 		];
 	}
 
@@ -104,9 +105,10 @@ final class Labels {
 	 */
 	public static function time_styles(): array {
 		return [
-			'24h'       => __( '24-hour (09:00–18:00)', 'rmd-opening-hours' ),
-			'24h-short' => __( '24-hour, short (9–18)', 'rmd-opening-hours' ),
-			'12h'       => __( '12-hour (9:00 am–6:00 pm)', 'rmd-opening-hours' ),
+			'24h'        => __( '24-hour (09:00–18:00)', 'rmd-opening-hours' ),
+			'24h-suffix' => __( '24-hour with unit (08:00 – 12:00 h)', 'rmd-opening-hours' ),
+			'24h-short'  => __( '24-hour, short (9–18)', 'rmd-opening-hours' ),
+			'12h'        => __( '12-hour (9:00 am–6:00 pm)', 'rmd-opening-hours' ),
 		];
 	}
 }

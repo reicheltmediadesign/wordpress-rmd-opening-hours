@@ -3,11 +3,18 @@ import { CheckboxControl, SelectControl } from '@wordpress/components';
 
 import DayEditor from './DayEditor';
 
-const RULE_MODES = [
+const DEFAULT_MODES = [
 	{ value: 'closed', label: __( 'Closed', 'rmd-opening-hours' ) },
 	{ value: 'regular', label: __( 'Regular hours', 'rmd-opening-hours' ) },
 	{ value: 'custom', label: __( 'Special hours', 'rmd-opening-hours' ) },
 ];
+
+const RULE_MODES = [
+	{ value: 'default', label: __( 'As all holidays', 'rmd-opening-hours' ) },
+	...DEFAULT_MODES,
+];
+
+const EMPTY_DAY = { mode: 'open', slots: [], text: '', note: '' };
 
 function formatDate( ymd ) {
 	if ( ! ymd ) {
@@ -29,18 +36,16 @@ export default function HolidaysEditor( { config, value, onChange } ) {
 			( h.regional.includes( state ) && value.regional.includes( h.id ) )
 	);
 	const years = Object.keys( config.holidays[ 0 ]?.dates || {} );
+	const defaultRule = value.default || { mode: 'closed', day: EMPTY_DAY };
 
 	const ruleFor = ( id ) =>
-		value.rules[ id ] || {
-			mode: 'closed',
-			day: { mode: 'open', slots: [], text: '', note: '' },
-		};
+		value.rules[ id ] || { mode: 'default', day: EMPTY_DAY };
 	const setRule = ( id, patch ) => {
 		const rules = {
 			...value.rules,
 			[ id ]: { ...ruleFor( id ), ...patch },
 		};
-		if ( rules[ id ].mode === 'closed' ) {
+		if ( rules[ id ].mode === 'default' ) {
 			delete rules[ id ];
 		}
 		set( { rules } );
@@ -50,7 +55,7 @@ export default function HolidaysEditor( { config, value, onChange } ) {
 		<div className="rmd-oh-holidays">
 			<p className="description">
 				{ __(
-					'Public holidays are calculated automatically. Decide per holiday whether you are closed, keep your regular hours or open with special hours.',
+					'Public holidays are calculated automatically. Set the rule for all holidays first, then adjust single holidays if needed. The rule for all holidays is also shown as the “Public holidays” row below Sunday.',
 					'rmd-opening-hours'
 				) }
 			</p>
@@ -96,6 +101,32 @@ export default function HolidaysEditor( { config, value, onChange } ) {
 							/>
 						) ) }
 					</fieldset>
+				) }
+			</div>
+
+			<div className="rmd-oh-holidays__default">
+				<SelectControl
+					label={ __(
+						'On public holidays we are',
+						'rmd-opening-hours'
+					) }
+					value={ defaultRule.mode }
+					options={ DEFAULT_MODES }
+					onChange={ ( mode ) =>
+						set( { default: { ...defaultRule, mode } } )
+					}
+					__nextHasNoMarginBottom
+					__next40pxDefaultSize
+				/>
+				{ defaultRule.mode === 'custom' && (
+					<DayEditor
+						config={ config }
+						value={ defaultRule.day || EMPTY_DAY }
+						onChange={ ( day ) =>
+							set( { default: { ...defaultRule, day } } )
+						}
+						compact
+					/>
 				) }
 			</div>
 

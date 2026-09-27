@@ -206,7 +206,38 @@ final class ValidatorTest extends TestCase {
 		self::assertSame( [ 'holidays.rules.unknown:invalid_holiday' ], $this->codes( $result ) );
 		self::assertSame( 'BY', $result['data']['state'] );
 		self::assertSame( [ 'mariae_himmelfahrt' ], $result['data']['regional'], 'Fronleichnam is statutory in BY, not regional.' );
-		self::assertSame( [ 'karfreitag' ], array_keys( $result['data']['rules'] ), 'Closed rules are not stored.' );
+		self::assertSame( [ 'neujahr', 'karfreitag' ], array_keys( $result['data']['rules'] ) );
+		self::assertSame( 'closed', $result['data']['default']['mode'] );
+	}
+
+	public function test_holiday_default_rule(): void {
+		$result = ( new Validator() )->normalize_holidays(
+			[
+				'state'   => 'SN',
+				'default' => [
+					'mode' => 'custom',
+					'day'  => [
+						'mode'  => 'open',
+						'slots' => [
+							[
+								'start' => '10:00',
+								'end'   => '12:00',
+							],
+						],
+					],
+				],
+				'rules'   => [
+					'neujahr'    => [ 'mode' => 'default' ],
+					'karfreitag' => [ 'mode' => '' ],
+					'ostermontag' => [ 'mode' => 'closed' ],
+				],
+			]
+		);
+
+		self::assertSame( [], $result['errors'] );
+		self::assertSame( 'custom', $result['data']['default']['mode'] );
+		self::assertSame( '10:00', $result['data']['default']['day']['slots'][0]['start'] );
+		self::assertSame( [ 'ostermontag' ], array_keys( $result['data']['rules'] ), '"default" rules are not stored.' );
 	}
 
 	public function test_display_and_schema_fall_back(): void {

@@ -3,21 +3,25 @@ import { Button } from '@wordpress/components';
 
 import { WEEKDAYS } from '../model';
 import DayEditor from './DayEditor';
+import ImportDialog from './ImportDialog';
 
 /**
- * Seven DayEditors in a grid with a "copy to following days" shortcut.
+ * Seven DayEditors in a grid with a "copy to following days" shortcut and an
+ * optional text import.
  *
  * @param {Object}   props
  * @param {Object}   props.config
  * @param {Object}   props.week
  * @param {Function} props.onChange
  * @param {boolean}  props.compact
+ * @param {Function} props.onImport Receives the parser result; enables the import button.
  */
 export default function WeekEditor( {
 	config,
 	week,
 	onChange,
 	compact = false,
+	onImport = null,
 } ) {
 	const copyDown = ( fromKey ) => {
 		const fromIndex = WEEKDAYS.indexOf( fromKey );
@@ -31,6 +35,11 @@ export default function WeekEditor( {
 
 	return (
 		<div className="rmd-oh-week">
+			{ onImport && (
+				<div className="rmd-oh-week__toolbar">
+					<ImportDialog config={ config } onApply={ onImport } />
+				</div>
+			) }
 			{ WEEKDAYS.map( ( key ) => (
 				<div className="rmd-oh-week__row" key={ key }>
 					<div className="rmd-oh-week__label">

@@ -190,6 +190,7 @@ final class HelpPage {
 				[ __( 'Text', 'rmd-opening-hours' ), __( 'Shows a text instead of times, e.g. “by appointment” or “on request”.', 'rmd-opening-hours' ) ],
 				[ __( 'Note', 'rmd-opening-hours' ), __( 'Optional remark shown next to the hours of that day, e.g. “Emergency service only”. Notes can be hidden in the display options.', 'rmd-opening-hours' ) ],
 				[ __( 'Copy to Tue–Fri', 'rmd-opening-hours' ), __( 'Copies Monday’s entry to Tuesday through Friday to save typing.', 'rmd-opening-hours' ) ],
+				[ __( 'Import from text…', 'rmd-opening-hours' ), __( 'Paste the opening hours from your old website (a copied table, a list or a sentence such as “Dienstag, Donnerstag: 7 – 16 Uhr”). The editor recognises day names, ranges, several time slots, “geschlossen”, “nach Vereinbarung” and a holiday line, shows a preview and fills in the week. Check the result before saving.', 'rmd-opening-hours' ) ],
 			]
 		);
 	}
@@ -214,6 +215,7 @@ final class HelpPage {
 	private static function section_holidays(): void {
 		self::heading( 'holidays', __( 'Holidays', 'rmd-opening-hours' ) );
 		self::p( __( 'German public holidays are calculated automatically for the chosen <strong>federal state</strong>, including moveable feasts such as Easter and Whitsun, and the Day of Repentance in Saxony. Some holidays apply only in parts of a state (e.g. Corpus Christi in Catholic communities of Saxony and Thuringia, Assumption Day and the Augsburg Peace Festival in Bavaria); tick them under <strong>regional holidays</strong> if they apply to you.', 'rmd-opening-hours' ) );
+		self::p( __( 'First choose what applies <strong>on all holidays</strong> (closed by default). This rule is shown as a “Public holidays” row after Sunday in the opening hours; it can be switched off under Display, per block or with holidays="no" in the shortcode. Then adjust single holidays where needed; “As all holidays” means no override.', 'rmd-opening-hours' ) );
 		self::p( __( 'For each holiday choose a rule:', 'rmd-opening-hours' ) );
 		self::dl(
 			[
@@ -230,8 +232,8 @@ final class HelpPage {
 		self::p( __( 'Defaults for how this set is shown. Every block and shortcode can override each option individually.', 'rmd-opening-hours' ) );
 		self::dl(
 			[
-				[ __( 'Layout', 'rmd-opening-hours' ), __( '<strong>Table</strong> – one row per day (group), best for sidebars and contact pages. <strong>List</strong> – definition list with the same content, useful when tables look heavy in your theme. <strong>Compact</strong> – everything in a single line, e.g. “Mon–Fri 9–18 h · Sat 9–12 h”, for footers.', 'rmd-opening-hours' ) ],
-				[ __( 'Time format', 'rmd-opening-hours' ), __( '24-hour (09:00–18:00), short 24-hour (9–18 h, minutes only when needed) or 12-hour (9:00 am–6:00 pm).', 'rmd-opening-hours' ) ],
+				[ __( 'Layout', 'rmd-opening-hours' ), __( '<strong>Table</strong> – one row per day (group), best for sidebars and contact pages. <strong>List</strong> – definition list with the same content, useful when tables look heavy in your theme. <strong>Compact</strong> – everything in a single line, e.g. “Mon–Fri 9–18 h · Sat 9–12 h”, for footers. <strong>Paragraphs</strong> – written out with full day names in bold, one line per time slot and the note below, e.g. for contact pages.', 'rmd-opening-hours' ) ],
+				[ __( 'Time format', 'rmd-opening-hours' ), __( '24-hour (09:00–18:00), 24-hour with unit (08:00 – 12:00 h), short 24-hour (9–18 h, minutes only when needed) or 12-hour (9:00 am–6:00 pm).', 'rmd-opening-hours' ) ],
 				[ __( 'Week shown', 'rmd-opening-hours' ), __( '<strong>Current week</strong> shows Monday to Sunday of this week with holidays and periods already applied, so a visitor sees what really applies. <strong>Regular hours only</strong> always shows the plain weekly schedule; combine it with the notice block to announce deviations.', 'rmd-opening-hours' ) ],
 				[ __( 'Group days with equal hours', 'rmd-opening-hours' ), __( 'Merges consecutive days with identical hours into one row, e.g. “Mon–Fri”. Days that differ (a holiday, a note) start a new row.', 'rmd-opening-hours' ) ],
 				[ __( 'Highlight today', 'rmd-opening-hours' ), __( 'Marks today’s row so it can be styled (bold background by default).', 'rmd-opening-hours' ) ],

@@ -7,7 +7,8 @@ WordPress plugin to manage regular and seasonal opening hours, show them as a bl
 - **Several sets per site**, e.g. "Shop" and "Phone hours" or two locations.
 - **Weekly hours with any number of time slots per day** (08:00–12:00 and 14:00–18:00), free-text days ("by appointment"), per-day notes and overnight hours (18:00–02:00).
 - **Planned periods**: closed, the same hours every day, or a different weekly schedule for a date range. Optionally repeating every year (e.g. 24 Dec – 2 Jan).
-- **German public holidays** calculated per federal state, including regional opt-ins (e.g. Corpus Christi in parts of Saxony). Decide **per holiday** whether you are closed, keep regular hours or open with special hours.
+- **German public holidays** calculated per federal state, including regional opt-ins (e.g. Corpus Christi in parts of Saxony). One default rule for all holidays (closed by default, shown as a “Public holidays” row after Sunday) and **per-holiday overrides**: closed, regular hours or special hours.
+- **Import from text**: paste the hours from your old website (table, list or “Dienstag, Donnerstag: 7 - 16 Uhr”) and let the editor fill in the week.
 - **Blocks and shortcodes** for the opening hours (table, list or one line), an **automatic notice** that appears a configurable number of days before a period and disappears when it is over, and a **live "open now" status**.
 - **Works with page caching**: the page embeds exact time windows and a small script reveals notices and updates the status at the right moment; known caches are also purged on save.
 - **Structured data** (schema.org `openingHoursSpecification` and `specialOpeningHoursSpecification`), optional per set.
@@ -65,12 +66,13 @@ Which hours apply on a given day: a **closed period** always wins, then a **publ
 | Attribute | Values | Applies to |
 | --- | --- | --- |
 | `set` | Set slug or ID; empty = default set, `all` (notice only) = every set | all |
-| `layout` | `table`, `list`, `compact` | opening hours |
+| `layout` | `table`, `list`, `compact`, `paragraphs` | opening hours |
+| `holidays` | `yes`, `no` – show the “Public holidays” row | opening hours |
 | `week` | `current` (with holidays and periods), `regular` | opening hours |
 | `group` | `yes`, `no` – merge consecutive days with equal hours (Mon–Fri) | opening hours |
 | `today` | `yes`, `no` – highlight today | opening hours |
 | `notes` | `yes`, `no` – show notes | opening hours |
-| `time_style` | `24h`, `24h-short`, `12h` | opening hours |
+| `time_style` | `24h`, `24h-suffix`, `24h-short`, `12h` | opening hours |
 | `title` | `yes`, `no` – show the set name | opening hours |
 | `lead_days` | Number of days before a period starts; `0` = plugin setting | notice |
 | `template` | Text with placeholders `{name}`, `{start}`, `{end}`, `{hours}`, `{note}`, `{set}` | notice |
