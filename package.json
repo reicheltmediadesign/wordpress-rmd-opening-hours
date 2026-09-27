@@ -1,6 +1,6 @@
 {
   "name": "rmd-opening-hours",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "WordPress plugin to manage regular and seasonal opening hours with blocks, shortcodes and automatic notices.",
   "author": "Philipp Reichelt <info@reicheltmedia.design> (https://reicheltmedia.design)",
   "license": "GPL-2.0-or-later",

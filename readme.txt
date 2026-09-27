@@ -4,7 +4,7 @@ Tags: opening hours, business hours, holidays, block, shortcode
 Requires at least: 6.8
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 0.1.1
+Stable tag: 0.1.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -40,6 +40,9 @@ RMD Opening Hours lets site owners maintain their own opening hours without touc
 Yes. Upcoming notices are embedded (hidden) in the page with their exact display window and revealed by a small script at the right time. Known page caches are also purged when hours are saved and once a day.
 
 == Changelog ==
+
+= 0.1.2 =
+* Update checks read a metadata file attached to each release instead of the rate-limited GitHub API (fixes "HTTP status code: 403" on shared hosting).
 
 = 0.1.1 =
 * Time fields complete short input (14 → 14:00).

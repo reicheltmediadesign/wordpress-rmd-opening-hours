@@ -5,6 +5,12 @@ All notable changes to this plugin are documented here. The format follows
 
 ## [Unreleased]
 
+## [0.1.2] – 2026-09-27
+
+### Fixed
+
+- Update checks no longer use the GitHub REST API, whose limit of 60 unauthenticated requests per hour and IP address caused “HTTP status code: 403” errors on shared hosting. The plugin now reads a small `update.json` attached to every release.
+
 ## [0.1.1] – 2026-09-27
 
 ### Changed

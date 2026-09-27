@@ -50,11 +50,16 @@ jobs:
       - name: Build plugin zip
         run: bash bin/build-zip.sh
 
+      - name: Build update metadata (update.json)
+        run: bash bin/build-update-info.sh
+
       - name: Attest build provenance
         uses: actions/attest-build-provenance@v4
         with:
           subject-path: dist/rmd-opening-hours.zip
 
+      # update.json must stay attached: installed sites read
+      # releases/latest/download/update.json to learn about new versions.
       - name: Create draft release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -63,4 +68,5 @@ jobs:
             --title="${GITHUB_REF_NAME}" \
             --draft \
             --generate-notes \
-            dist/rmd-opening-hours.zip
+            dist/rmd-opening-hours.zip \
+            dist/update.json
