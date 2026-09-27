@@ -55,7 +55,7 @@ final class Blocks {
 		if ( ! current_user_can( 'activate_plugins' ) ) {
 			return;
 		}
-		echo '<div class="notice notice-warning"><p>' . esc_html__( 'RMD Opening Hours: the block assets are missing. Run “npm install && npm run build” in the plugin folder, or install a release package.', 'rmd-opening-hours' ) . '</p></div>';
+		echo '<div class="notice notice-warning"><p>' . esc_html__( 'RMD Opening Hours: the built block files are missing. You probably installed the “Source code” download from GitHub. Please install the file rmd-opening-hours.zip from the release page instead (or run “npm install && npm run build” in a development checkout).', 'rmd-opening-hours' ) . '</p></div>';
 	}
 
 	/* ------------------------------------------------------------------ */

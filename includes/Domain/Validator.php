@@ -161,7 +161,7 @@ final class Validator {
 			'default_set'         => 0,
 			'lead_days'           => 7,
 			'notice_template'     => '<strong>{name}</strong> ({start} – {end}): {hours} {note}',
-			'notice_dismissible'  => true,
+			'notice_dismissible'  => false,
 			'notice_horizon_days' => 30,
 			'status_horizon_days' => 14,
 			'time_style'          => '24h',

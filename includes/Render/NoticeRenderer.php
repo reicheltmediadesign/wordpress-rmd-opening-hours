@@ -112,14 +112,22 @@ final class NoticeRenderer {
 		$period    = $notice['period'];
 		$formatter = new Formatter( (string) $set->display['time_style'] );
 
-		$replacements = [
-			'{name}'  => esc_html( $period->name ),
-			'{start}' => esc_html( $formatter->date( $notice['start'] ) ),
-			'{end}'   => esc_html( $formatter->date( $notice['end'] ) ),
-			'{note}'  => esc_html( $period->note ),
-			'{hours}' => esc_html( self::hours_summary( $set, $period, $notice['start'], $formatter ) ),
-			'{set}'   => esc_html( $set->title ),
+		$values = [
+			'name'  => $period->name,
+			'start' => $formatter->date( $notice['start'] ),
+			'end'   => $formatter->date( $notice['end'] ),
+			'note'  => $period->note,
+			'hours' => self::hours_summary( $set, $period, $notice['start'], $formatter ),
+			'set'   => $set->title,
 		];
+
+		// Each value gets its own span so themes can style parts of the text.
+		$replacements = [];
+		foreach ( $values as $key => $value ) {
+			$replacements[ '{' . $key . '}' ] = '' === $value
+				? ''
+				: '<span class="rmd-oh-notice__' . $key . '">' . esc_html( $value ) . '</span>';
+		}
 
 		$text = strtr( $template, $replacements );
 		$text = (string) preg_replace( '/\(\s*\)/', '', $text ); // Empty brackets from unused placeholders.

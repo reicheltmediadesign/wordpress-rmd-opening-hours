@@ -53,9 +53,9 @@ final class Settings {
 		}
 		unset( $value['roles_submitted'] );
 
-		$validator = new Validator();
-		$result    = $validator->normalize_settings( $value );
-		$data      = $result['data'];
+		// The WordPress-wired validator keeps the allowed HTML of the notice template (wp_kses).
+		$result = ExportImport::validator()->normalize_settings( $value );
+		$data   = $result['data'];
 
 		// Only users who may manage roles can change who has access; keep the
 		// stored value for everyone else and drop unknown role slugs.
