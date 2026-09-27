@@ -462,10 +462,6 @@ msgstr "Erstes Set (alphabetisch)"
 msgid "Used when a block or shortcode does not name a set."
 msgstr "Wird verwendet, wenn ein Block oder Shortcode kein Set angibt."
 
-#: includes/Blocks.php:58
-msgid "RMD Opening Hours: the block assets are missing. Run “npm install && npm run build” in the plugin folder, or install a release package."
-msgstr "RMD Öffnungszeiten: Die Block-Dateien fehlen. Führen Sie „npm install && npm run build“ im Plugin-Ordner aus oder installieren Sie ein Release-Paket."
-
 #: includes/Blocks.php:109
 msgid "No notice is scheduled right now. This block stays empty on the website until a period comes within its lead time."
 msgstr "Derzeit steht kein Hinweis an. Dieser Block bleibt auf der Website leer, bis ein Zeitraum in seine Vorlaufzeit kommt."
@@ -744,8 +740,8 @@ msgid "%s h"
 msgstr "%s Uhr"
 
 #: includes/Render/Formatter.php:65
-#: includes/Render/NoticeRenderer.php:131
-#: includes/Render/NoticeRenderer.php:148
+#: includes/Render/NoticeRenderer.php:139
+#: includes/Render/NoticeRenderer.php:156
 msgid "closed"
 msgstr "geschlossen"
 
@@ -1739,3 +1735,17 @@ msgstr "Nur Administratoren können das ändern."
 #: includes/Admin/SettingsPage.php:170
 msgid "always"
 msgstr "immer"
+
+#: includes/Blocks.php:58
+msgid "RMD Opening Hours: the built block files are missing. You probably installed the “Source code” download from GitHub. Please install the file rmd-opening-hours.zip from the release page instead (or run “npm install && npm run build” in a development checkout)."
+msgstr "RMD Öffnungszeiten: Die gebauten Block-Dateien fehlen. Vermutlich wurde der „Source code“-Download von GitHub installiert. Bitte stattdessen die Datei rmd-opening-hours.zip von der Release-Seite installieren (oder in einem Entwicklungs-Checkout „npm install && npm run build“ ausführen)."
+
+#: build/blocks/notice/block.json
+msgctxt "block style label"
+msgid "Plain"
+msgstr "Schlicht"
+
+#: build/blocks/notice/block.json
+msgctxt "block style label"
+msgid "Box"
+msgstr "Box"

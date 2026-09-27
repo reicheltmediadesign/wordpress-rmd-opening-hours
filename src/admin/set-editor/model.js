@@ -116,17 +116,28 @@ export function normalizeSet( raw, config ) {
 }
 
 /**
- * "8:00" → "08:00"; returns the input unchanged when it is not a time.
+ * Completes short input to HH:MM: "14" → "14:00", "9" → "09:00",
+ * "1430" → "14:30", "14.30" / "14,30" → "14:30", "8:5" → "08:05".
+ * Returns the input unchanged when it is not recognisable as a time.
  *
  * @param {string} value
  * @return {string} Normalized time.
  */
 export function normalizeTime( value ) {
-	const match = /^\s*(\d{1,2}):(\d{2})\s*$/.exec( value || '' );
-	if ( ! match ) {
-		return value;
+	const raw = ( value || '' ).trim();
+	let match = /^(\d{1,2})$/.exec( raw );
+	if ( match ) {
+		return `${ match[ 1 ].padStart( 2, '0' ) }:00`;
 	}
-	return `${ match[ 1 ].padStart( 2, '0' ) }:${ match[ 2 ] }`;
+	match = /^(\d{1,2})(\d{2})$/.exec( raw );
+	if ( match ) {
+		return `${ match[ 1 ].padStart( 2, '0' ) }:${ match[ 2 ] }`;
+	}
+	match = /^(\d{1,2})[:.,](\d{1,2})$/.exec( raw );
+	if ( match ) {
+		return `${ match[ 1 ].padStart( 2, '0' ) }:${ match[ 2 ].padStart( 2, '0' ) }`;
+	}
+	return value;
 }
 
 export function isValidTime( value, allowMidnight = false ) {

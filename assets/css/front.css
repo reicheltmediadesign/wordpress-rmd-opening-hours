@@ -11,7 +11,9 @@
  *   .rmd-oh__day / __hours / __slot / __closed / __note
  *   .rmd-oh-status               open-now indicator (.is-open | .is-closed), __dot, __text
  *   .rmd-oh-notices              notice container (.has-visible)
- *   .rmd-oh-notice               one notice (.rmd-oh-notice--closed | --daily | --weekly, .is-running)
+ *   .rmd-oh-notice               one notice (.rmd-oh-notice--closed | --daily | --weekly, .is-running); unstyled by default,
+ *                                add the block style "Box" (.is-style-box on the container) for a highlighted box
+ *   .rmd-oh-notice__name / __start / __end / __hours / __note / __set   placeholder values inside the text
  */
 
 .rmd-oh,
@@ -37,7 +39,7 @@
 
 /* Table layout */
 .rmd-oh__table {
-	width: auto;
+	width: 100%;
 	border-collapse: collapse;
 	margin: 0;
 }
@@ -166,6 +168,10 @@
 .rmd-oh-notice {
 	position: relative;
 	margin: 0 0 0.75em;
+}
+
+/* Optional "Box" block style (class is-style-box on the block or shortcode class="is-style-box") */
+.is-style-box .rmd-oh-notice {
 	padding: var(--rmd-oh-notice-padding);
 	background: var(--rmd-oh-notice-bg);
 	color: var(--rmd-oh-notice-color);

@@ -4,7 +4,7 @@ Tags: opening hours, business hours, holidays, block, shortcode
 Requires at least: 6.8
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 0.1.0
+Stable tag: 0.1.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -40,6 +40,14 @@ RMD Opening Hours lets site owners maintain their own opening hours without touc
 Yes. Upcoming notices are embedded (hidden) in the page with their exact display window and revealed by a small script at the right time. Known page caches are also purged when hours are saved and once a day.
 
 == Changelog ==
+
+= 0.1.1 =
+* Time fields complete short input (14 → 14:00).
+* Opening hours table uses the full block width.
+* Notices are unstyled by default; new block style "Box" for a highlighted box. Placeholder values get their own CSS classes.
+* Notices are no longer dismissible by default.
+* Clearer message when the GitHub source download was installed instead of the release package.
+* Fixed: saving the settings removed the allowed HTML from the notice template.
 
 = 0.1.0 =
 * Initial release.

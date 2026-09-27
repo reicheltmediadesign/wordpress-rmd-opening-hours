@@ -22,7 +22,7 @@ WordPress 6.8 or newer, PHP 8.1 or newer.
 
 ## Installation
 
-1. Download `rmd-opening-hours.zip` from the latest [release](https://github.com/reicheltmediadesign/wordpress-rmd-opening-hours/releases).
+1. Download `rmd-opening-hours.zip` from the latest [release](https://github.com/reicheltmediadesign/wordpress-rmd-opening-hours/releases). **Do not use the “Source code” downloads** – they lack the built block files, translations and the update library.
 2. In WordPress go to Plugins → Add New → Upload Plugin, choose the zip and activate it.
 3. Open **Opening Hours → Add set**, enter a name (e.g. "Shop") and your weekly hours.
 4. Add the blocks to a page, or paste the shortcode shown next to the set.
@@ -106,6 +106,8 @@ All markup uses the `rmd-oh` prefix and a handful of CSS custom properties. Over
 ```
 
 Useful classes: `.rmd-oh--table` / `--list` / `--compact`, `.rmd-oh__row.is-today`, `.is-closed`, `.is-exception` (holiday or period), `.rmd-oh__note`, `.rmd-oh-status.is-open` / `.is-closed`, `.rmd-oh-notice.is-running`. The full list is documented at the top of `assets/css/front.css`.
+
+Notices are unstyled by default so they inherit your theme. Choose the block style **Box** (or add `class="is-style-box"` to the shortcode) for a highlighted box, or target the parts of the text: `.rmd-oh-notice__name`, `__start`, `__end`, `__hours`, `__note`, `__set`.
 
 ## Developer hooks
 
