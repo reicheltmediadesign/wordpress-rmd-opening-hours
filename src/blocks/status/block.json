@@ -1,0 +1,29 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "rmd-opening-hours/status",
+	"version": "0.1.0",
+	"title": "Open Now Status",
+	"category": "widgets",
+	"icon": "yes-alt",
+	"description": "Live indicator whether the business is open right now, with the next closing or opening time.",
+	"keywords": [ "opening hours", "open now", "status", "Öffnungszeiten", "geöffnet" ],
+	"textdomain": "rmd-opening-hours",
+	"attributes": {
+		"setId": { "type": "number", "default": 0 },
+		"showNext": { "type": "boolean", "default": true },
+		"isPreview": { "type": "boolean", "default": false }
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"color": { "background": true, "text": true },
+		"typography": { "fontSize": true, "lineHeight": true },
+		"spacing": { "margin": true, "padding": true }
+	},
+	"example": { "attributes": { "isPreview": true } },
+	"editorScript": "file:./index.js",
+	"style": "rmd-oh-front-style",
+	"viewScript": "rmd-oh-front",
+	"render": "file:./render.php"
+}

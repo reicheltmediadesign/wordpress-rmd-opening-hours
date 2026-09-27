@@ -1,0 +1,30 @@
+{
+  "name": "rmd-opening-hours",
+  "version": "0.1.0",
+  "description": "WordPress plugin to manage regular and seasonal opening hours with blocks, shortcodes and automatic notices.",
+  "author": "Philipp Reichelt <info@reicheltmedia.design> (https://reicheltmedia.design)",
+  "license": "GPL-2.0-or-later",
+  "private": true,
+  "homepage": "https://github.com/reicheltmediadesign/wordpress-rmd-opening-hours",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reicheltmediadesign/wordpress-rmd-opening-hours.git"
+  },
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "build": "wp-scripts build --blocks-manifest",
+    "start": "wp-scripts start --blocks-manifest",
+    "lint:js": "wp-scripts lint-js src assets/js",
+    "lint:css": "wp-scripts lint-style \"src/**/*.scss\" \"assets/css/*.css\"",
+    "lint": "npm run lint:js && npm run lint:css",
+    "i18n": "bash bin/make-i18n.sh",
+    "zip": "bash bin/build-zip.sh",
+    "check-version": "bash bin/check-version.sh"
+  },
+  "devDependencies": {
+    "@wordpress/icons": "^17.0.0",
+    "@wordpress/scripts": "^35.0.0"
+  }
+}
