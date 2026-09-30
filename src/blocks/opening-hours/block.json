@@ -2,7 +2,7 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "rmd-opening-hours/opening-hours",
-	"version": "0.1.5",
+	"version": "0.1.6",
 	"title": "Opening Hours",
 	"category": "widgets",
 	"icon": "clock",

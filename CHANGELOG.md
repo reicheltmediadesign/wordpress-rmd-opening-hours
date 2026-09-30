@@ -5,6 +5,8 @@ All notable changes to this plugin are documented here. The format follows
 
 ## [Unreleased]
 
+## [0.1.6] – 2026-09-30
+
 ### Fixed
 
 - Periods: date errors are no longer shown while you are still entering the dates, and a period no longer disappears when a date is typed in with the keyboard. The dates are checked when the set is saved; a period with invalid dates is kept (marked “not used”) so it can be corrected, and is ignored until then.
