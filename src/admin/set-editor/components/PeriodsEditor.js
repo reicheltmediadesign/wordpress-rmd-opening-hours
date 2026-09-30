@@ -1,5 +1,5 @@
 import { __, sprintf } from '@wordpress/i18n';
-import { useState } from '@wordpress/element';
+import { useMemo, useState } from '@wordpress/element';
 import {
 	Button,
 	CheckboxControl,
@@ -31,6 +31,7 @@ const STATUS_LABELS = {
 	running: __( 'running', 'rmd-opening-hours' ),
 	upcoming: __( 'upcoming', 'rmd-opening-hours' ),
 	recurring: __( 'yearly', 'rmd-opening-hours' ),
+	invalid: __( 'not used', 'rmd-opening-hours' ),
 };
 
 function formatDate( ymd ) {
@@ -51,18 +52,38 @@ function dateErrorFor( period ) {
 			'rmd-opening-hours'
 		);
 	}
+	if (
+		period.recurring &&
+		( Date.parse( period.end ) - Date.parse( period.start ) ) / 86400000 >
+			365
+	) {
+		return __(
+			'A yearly recurring period may not be longer than one year.',
+			'rmd-opening-hours'
+		);
+	}
 	return '';
 }
 
-function PeriodRow( { config, period, onChange, onRemove } ) {
-	const [ open, setOpen ] = useState( period.name === '' );
+function PeriodRow( { config, period, savedInvalid, onChange, onRemove } ) {
+	const [ open, setOpen ] = useState( period.name === '' || savedInvalid );
 	const set = ( patch ) => onChange( { ...period, ...patch } );
-	const status = periodStatus( period, config.today );
 	const dateError = dateErrorFor( period );
+	// Errors only show for periods that were saved with them; new input is
+	// checked when the set is saved.
+	const showError = savedInvalid && dateError !== '';
+	let status = periodStatus( period, config.today );
+	if ( showError ) {
+		status = 'invalid';
+	} else if ( dateError ) {
+		status = null;
+	}
 
 	return (
 		<div
-			className={ `rmd-oh-period is-${ status }${ open ? ' is-open' : '' }` }
+			className={ `rmd-oh-period${ status ? ` is-${ status }` : '' }${
+				open ? ' is-open' : ''
+			}` }
 		>
 			<div className="rmd-oh-period__summary">
 				<button
@@ -71,11 +92,13 @@ function PeriodRow( { config, period, onChange, onRemove } ) {
 					onClick={ () => setOpen( ! open ) }
 					aria-expanded={ open }
 				>
-					<span
-						className={ `rmd-oh-badge rmd-oh-badge--${ status }` }
-					>
-						{ STATUS_LABELS[ status ] }
-					</span>
+					{ status && (
+						<span
+							className={ `rmd-oh-badge rmd-oh-badge--${ status }` }
+						>
+							{ STATUS_LABELS[ status ] }
+						</span>
+					) }
 					<strong>
 						{ period.name ||
 							__( '(unnamed period)', 'rmd-opening-hours' ) }
@@ -154,9 +177,13 @@ function PeriodRow( { config, period, onChange, onRemove } ) {
 							__next40pxDefaultSize
 						/>
 					</div>
-					{ dateError && (
+					{ showError && (
 						<Notice status="error" isDismissible={ false }>
-							{ dateError }
+							{ dateError }{ ' ' }
+							{ __(
+								'This period is not used until it is corrected.',
+								'rmd-opening-hours'
+							) }
 						</Notice>
 					) }
 					<div className="rmd-oh-grid rmd-oh-grid--3">
@@ -285,24 +312,51 @@ function PeriodRow( { config, period, onChange, onRemove } ) {
 	);
 }
 
-export default function PeriodsEditor( { config, periods, onChange } ) {
+export default function PeriodsEditor( {
+	config,
+	periods,
+	savedPeriods,
+	onChange,
+} ) {
 	const [ showPast, setShowPast ] = useState( false );
 
-	const sorted = [ ...periods ].sort( ( a, b ) => {
-		const sa = periodStatus( a, config.today );
-		const sb = periodStatus( b, config.today );
-		if ( ( sa === 'past' ) !== ( sb === 'past' ) ) {
-			return sa === 'past' ? 1 : -1;
-		}
-		return a.start.localeCompare( b.start );
-	} );
+	// Order, past filter and errors follow the saved state; periods added
+	// since then stay at the end in the order they were added.
+	const saved = useMemo( () => {
+		const isPast = ( p ) =>
+			! dateErrorFor( p ) && periodStatus( p, config.today ) === 'past';
+		const order = [ ...savedPeriods ]
+			.sort( ( a, b ) => {
+				if ( isPast( a ) !== isPast( b ) ) {
+					return isPast( a ) ? 1 : -1;
+				}
+				return a.start.localeCompare( b.start );
+			} )
+			.map( ( p ) => p.uid );
+		return {
+			order,
+			past: new Set(
+				savedPeriods.filter( isPast ).map( ( p ) => p.uid )
+			),
+			invalid: new Set(
+				savedPeriods
+					.filter( ( p ) => dateErrorFor( p ) )
+					.map( ( p ) => p.uid )
+			),
+		};
+	}, [ savedPeriods, config.today ] );
+
+	const rank = ( p ) => {
+		const index = saved.order.indexOf( p.uid );
+		return index === -1 ? saved.order.length + periods.indexOf( p ) : index;
+	};
+	const sorted = [ ...periods ].sort( ( a, b ) => rank( a ) - rank( b ) );
 	const visible = showPast
 		? sorted
-		: sorted.filter( ( p ) => periodStatus( p, config.today ) !== 'past' );
+		: sorted.filter( ( p ) => ! saved.past.has( p.uid ) );
 	const pastCount =
 		sorted.length -
-		sorted.filter( ( p ) => periodStatus( p, config.today ) !== 'past' )
-			.length;
+		sorted.filter( ( p ) => ! saved.past.has( p.uid ) ).length;
 
 	const replace = ( uid, next ) =>
 		onChange( periods.map( ( p ) => ( p.uid === uid ? next : p ) ) );
@@ -329,6 +383,7 @@ export default function PeriodsEditor( { config, periods, onChange } ) {
 					key={ period.uid }
 					config={ config }
 					period={ period }
+					savedInvalid={ saved.invalid.has( period.uid ) }
 					onChange={ ( next ) => replace( period.uid, next ) }
 					onRemove={ () => remove( period.uid ) }
 				/>

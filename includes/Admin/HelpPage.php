@@ -201,7 +201,7 @@ final class HelpPage {
 		self::dl(
 			[
 				[ __( 'Name', 'rmd-opening-hours' ), __( 'Shown in the notice and used as the row label in the editor, e.g. “Summer break”.', 'rmd-opening-hours' ) ],
-				[ __( 'From / Until (inclusive)', 'rmd-opening-hours' ), __( 'First and last day of the period. A single day has the same start and end date.', 'rmd-opening-hours' ) ],
+				[ __( 'From / Until (inclusive)', 'rmd-opening-hours' ), __( 'First and last day of the period. A single day has the same start and end date. The dates are checked when you save; a period with invalid dates is kept so you can correct it, but it is not used until then.', 'rmd-opening-hours' ) ],
 				[ __( 'During this period', 'rmd-opening-hours' ), __( '<strong>Closed</strong> – closed on every day of the range. <strong>Same hours every day</strong> – one set of time slots that applies to every day, e.g. 10:00–14:00 between the years. <strong>Different weekly hours</strong> – a complete alternative week, e.g. summer hours.', 'rmd-opening-hours' ) ],
 				[ __( 'Lead time for the notice (days)', 'rmd-opening-hours' ), __( 'How many days before the start the notice block starts announcing this period. Empty uses the value from the settings.', 'rmd-opening-hours' ) ],
 				[ __( 'Note', 'rmd-opening-hours' ), __( 'Optional text shown with the hours and available as {note} in the notice, e.g. an emergency phone number.', 'rmd-opening-hours' ) ],

@@ -215,16 +215,16 @@ msgid "Enter a text (e.g. “by appointment”) or choose another mode; the day 
 msgstr "Bitte einen Text eingeben (z. B. „nach Vereinbarung“) oder einen anderen Modus wählen; der Tag wurde auf „geschlossen“ gesetzt."
 
 #: includes/Admin/Notices.php:71
-msgid "Invalid date."
-msgstr "Ungültiges Datum."
+msgid "Invalid date; the period is not used until it is corrected."
+msgstr "Ungültiges Datum; der Zeitraum wird erst nach der Korrektur verwendet."
 
 #: includes/Admin/Notices.php:72
-msgid "The end date is before the start date; the period was dropped."
-msgstr "Das Enddatum liegt vor dem Startdatum; der Zeitraum wurde verworfen."
+msgid "The end date is before the start date; the period is not used until it is corrected."
+msgstr "Das Enddatum liegt vor dem Startdatum; der Zeitraum wird erst nach der Korrektur verwendet."
 
 #: includes/Admin/Notices.php:73
-msgid "A yearly recurring period may not be longer than one year; the period was dropped."
-msgstr "Ein jährlich wiederkehrender Zeitraum darf nicht länger als ein Jahr sein; der Zeitraum wurde verworfen."
+msgid "A yearly recurring period may not be longer than one year; the period is not used until it is corrected."
+msgstr "Ein jährlich wiederkehrender Zeitraum darf nicht länger als ein Jahr sein; der Zeitraum wird erst nach der Korrektur verwendet."
 
 #: includes/Admin/Notices.php:74
 msgid "Every period needs a name."
@@ -901,12 +901,24 @@ msgid "yearly"
 msgstr "jährlich"
 
 #: build/admin/set-editor.js:2
+msgid "not used"
+msgstr "nicht verwendet"
+
+#: build/admin/set-editor.js:2
 msgid "The end date is before the start date."
 msgstr "Das Enddatum liegt vor dem Startdatum."
 
 #: build/admin/set-editor.js:2
 msgid "Please enter valid dates."
 msgstr "Bitte gültige Daten eingeben."
+
+#: build/admin/set-editor.js:2
+msgid "A yearly recurring period may not be longer than one year."
+msgstr "Ein jährlich wiederkehrender Zeitraum darf nicht länger als ein Jahr sein."
+
+#: build/admin/set-editor.js:2
+msgid "This period is not used until it is corrected."
+msgstr "Dieser Zeitraum wird erst nach der Korrektur verwendet."
 
 #: build/admin/set-editor.js:2
 msgid "(unnamed period)"
@@ -1374,8 +1386,8 @@ msgid "From / Until (inclusive)"
 msgstr "Von / Bis (einschließlich)"
 
 #: includes/Admin/HelpPage.php:204
-msgid "First and last day of the period. A single day has the same start and end date."
-msgstr "Erster und letzter Tag des Zeitraums. Ein einzelner Tag hat dasselbe Start- und Enddatum."
+msgid "First and last day of the period. A single day has the same start and end date. The dates are checked when you save; a period with invalid dates is kept so you can correct it, but it is not used until then."
+msgstr "Erster und letzter Tag des Zeitraums. Ein einzelner Tag hat dasselbe Start- und Enddatum. Die Daten werden beim Speichern geprüft; ein Zeitraum mit ungültigen Daten bleibt zum Korrigieren erhalten, wird bis dahin aber nicht verwendet."
 
 #: includes/Admin/HelpPage.php:205
 msgid "<strong>Closed</strong> – closed on every day of the range. <strong>Same hours every day</strong> – one set of time slots that applies to every day, e.g. 10:00–14:00 between the years. <strong>Different weekly hours</strong> – a complete alternative week, e.g. summer hours."
