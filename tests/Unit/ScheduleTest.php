@@ -134,6 +134,42 @@ final class ScheduleTest extends TestCase {
 		self::assertSame( 'Vacation', $result->spec->note );
 	}
 
+	public function test_periods_with_invalid_dates_are_ignored(): void {
+		$set = SetFactory::shop(
+			[
+				'periods' => [
+					SetFactory::period(
+						[
+							'start' => '2026-11-01',
+							'end'   => '2026-10-26',
+						]
+					),
+					SetFactory::period(
+						[
+							'uid'   => '22222222-2222-4222-8222-222222222222',
+							'start' => '2026-10-26',
+							'end'   => '',
+						]
+					),
+					SetFactory::period(
+						[
+							'uid'       => '33333333-3333-4333-8333-333333333333',
+							'start'     => '2025-10-01',
+							'end'       => '2026-10-31',
+							'recurring' => true,
+						]
+					),
+				],
+			]
+		);
+
+		self::assertSame( DayResult::SOURCE_REGULAR, Schedule::resolve( $set, '2026-10-29' )->source );
+		self::assertSame( [], Schedule::active_periods( $set, '2026-10-29' ) );
+		foreach ( $set->periods as $period ) {
+			self::assertFalse( $period->is_usable() );
+		}
+	}
+
 	public function test_holiday_beats_alternative_period_unless_ignored(): void {
 		$daily = [
 			'mode'  => 'daily',

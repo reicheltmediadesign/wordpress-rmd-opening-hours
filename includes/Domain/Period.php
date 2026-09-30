@@ -82,13 +82,38 @@ final class Period {
 	}
 
 	/**
+	 * Why a date range cannot be used, as a Validator error code, or null
+	 * when it is fine. Stored periods with a problem are ignored.
+	 */
+	public static function date_problem( string $start, string $end, bool $recurring ): ?string {
+		if ( ! Dates::is_valid( $start ) || ! Dates::is_valid( $end ) ) {
+			return 'invalid_date';
+		}
+		if ( ! $recurring && $end < $start ) {
+			return 'end_before_start';
+		}
+		if ( $recurring && Dates::diff_days( $start, $end ) > 365 ) {
+			return 'recurring_too_long';
+		}
+		return null;
+	}
+
+	public function is_usable(): bool {
+		return null === self::date_problem( $this->start, $this->end, $this->recurring );
+	}
+
+	/**
 	 * The occurrence that is running on $ymd or the next one after it.
+	 * Unusable periods (invalid dates) never occur.
 	 * Recurring periods are matched by month and day and may wrap around the
 	 * turn of the year (e.g. 24 Dec – 2 Jan).
 	 *
 	 * @return array{start: string, end: string}|null
 	 */
 	public function next_occurrence( string $ymd ): ?array {
+		if ( ! $this->is_usable() ) {
+			return null;
+		}
 		if ( ! $this->recurring ) {
 			if ( $this->end < $ymd ) {
 				return null;
@@ -134,7 +159,7 @@ final class Period {
 	public function length_days( string $ymd ): int {
 		$occurrence = $this->next_occurrence( $ymd );
 		if ( null === $occurrence ) {
-			return Dates::diff_days( $this->start, $this->end ) + 1;
+			return $this->is_usable() ? Dates::diff_days( $this->start, $this->end ) + 1 : 0;
 		}
 		return Dates::diff_days( $occurrence['start'], $occurrence['end'] ) + 1;
 	}

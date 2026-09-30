@@ -361,9 +361,6 @@ final class Validator {
 		$uids    = [];
 		foreach ( $raw as $index => $period ) {
 			$normalized = $this->period( $period, $path . '.' . $index );
-			if ( null === $normalized ) {
-				continue;
-			}
 			if ( isset( $uids[ $normalized['uid'] ] ) ) {
 				$normalized['uid'] = ( $this->uuid )();
 			}
@@ -376,25 +373,22 @@ final class Validator {
 		return $periods;
 	}
 
-	private function period( array $raw, string $path ): ?array {
+	private function period( array $raw, string $path ): array {
 		$uid = strtolower( (string) ( $raw['uid'] ?? '' ) );
 		if ( ! preg_match( '/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/', $uid ) ) {
 			$uid = ( $this->uuid )();
 		}
 
+		// Periods with broken dates are kept so they can be corrected in the
+		// editor; Period::date_problem() makes the schedule ignore them.
 		$recurring = $this->bool( $raw['recurring'] ?? false );
-		$start     = $this->date( (string) ( $raw['start'] ?? '' ), $path . '.start' );
-		$end       = $this->date( (string) ( $raw['end'] ?? '' ), $path . '.end' );
-		if ( null === $start || null === $end ) {
-			return null;
-		}
-		if ( ! $recurring && $end < $start ) {
-			$this->error( $path . '.end', 'end_before_start' );
-			return null;
-		}
-		if ( $recurring && Dates::diff_days( $start, $end ) > 365 ) {
-			$this->error( $path . '.end', 'recurring_too_long' );
-			return null;
+		$start     = $this->date( (string) ( $raw['start'] ?? '' ), $path . '.start' ) ?? '';
+		$end       = $this->date( (string) ( $raw['end'] ?? '' ), $path . '.end' ) ?? '';
+		if ( '' !== $start && '' !== $end ) {
+			$problem = Period::date_problem( $start, $end, $recurring );
+			if ( null !== $problem ) {
+				$this->error( $path . '.end', $problem );
+			}
 		}
 
 		$mode = $this->enum( (string) ( $raw['mode'] ?? Period::CLOSED ), Period::MODES, Period::CLOSED, $path . '.mode', 'invalid_mode' );

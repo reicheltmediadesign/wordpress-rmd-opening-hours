@@ -182,12 +182,14 @@ final class ValidatorTest extends TestCase {
 			[ 'periods.2.end:end_before_start', 'periods.3.start:invalid_date', 'periods.3.end:invalid_date' ],
 			$this->codes( $result )
 		);
-		self::assertCount( 2, $result['data'] );
-		self::assertSame( 'Earlier', $result['data'][0]['name'] );
-		self::assertSame( 3, $result['data'][0]['lead_days'] );
-		self::assertNull( $result['data'][1]['lead_days'] );
-		self::assertMatchesRegularExpression( '/^[0-9a-f-]{36}$/', $result['data'][1]['uid'] );
-		self::assertNotSame( $result['data'][0]['uid'], $result['data'][1]['uid'], 'Duplicate uids are replaced.' );
+		// Broken periods are kept for correction; sorted by start, empty first.
+		self::assertSame( [ 'No date', 'Earlier', 'Later', 'Broken' ], array_column( $result['data'], 'name' ) );
+		self::assertSame( '', $result['data'][0]['start'] );
+		self::assertSame( '2026-09-01', $result['data'][3]['end'] );
+		self::assertSame( 3, $result['data'][1]['lead_days'] );
+		self::assertNull( $result['data'][2]['lead_days'] );
+		self::assertMatchesRegularExpression( '/^[0-9a-f-]{36}$/', $result['data'][2]['uid'] );
+		self::assertCount( 4, array_unique( array_column( $result['data'], 'uid' ) ), 'Duplicate uids are replaced.' );
 	}
 
 	public function test_holidays(): void {

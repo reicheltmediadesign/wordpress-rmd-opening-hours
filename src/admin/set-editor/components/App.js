@@ -11,6 +11,9 @@ import SchemaPanel from './SchemaPanel';
 
 export default function App( { config, initial, onChange } ) {
 	const [ data, setData ] = useState( () => normalizeSet( initial, config ) );
+	// Periods as last saved: date errors, order and the past filter refer to
+	// this snapshot so rows do not complain, jump or vanish while typing.
+	const [ savedPeriods ] = useState( () => data.periods );
 
 	useEffect( () => {
 		onChange( data );
@@ -51,6 +54,7 @@ export default function App( { config, initial, onChange } ) {
 							<PeriodsEditor
 								config={ config }
 								periods={ data.periods }
+								savedPeriods={ savedPeriods }
 								onChange={ update( 'periods' ) }
 							/>
 						);

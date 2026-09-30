@@ -66,6 +66,23 @@ final class NoticeSelectorTest extends TestCase {
 		self::assertSame( '2026-12-17', $notices[0]['visible_from'] );
 	}
 
+	public function test_invalid_periods_get_no_notice(): void {
+		$set = SetFactory::shop(
+			[
+				'periods' => [
+					SetFactory::period(
+						[
+							'start' => '2026-07-20',
+							'end'   => '2026-07-10',
+						]
+					),
+				],
+			]
+		);
+
+		self::assertSame( [], NoticeSelector::select( $set, '2026-07-15', 7, 30 ) );
+	}
+
 	public function test_horizon_limits_prerendered_notices(): void {
 		self::assertCount( 0, NoticeSelector::select( $this->set(), '2026-03-01', 7, 30 ) );
 		self::assertCount( 2, NoticeSelector::select( $this->set(), '2026-06-20', 7, 30 ) );
