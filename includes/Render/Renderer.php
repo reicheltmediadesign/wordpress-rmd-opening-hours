@@ -25,7 +25,7 @@ final class Renderer {
 	 * Display options accepted from blocks and shortcodes. Values of "" or
 	 * "default" fall back to the set's own display settings.
 	 */
-	public const OPTION_KEYS = [ 'layout', 'group_days', 'highlight_today', 'show_notes', 'time_style', 'week_mode', 'show_holidays' ];
+	public const OPTION_KEYS = [ 'layout', 'group_days', 'highlight_today', 'show_notes', 'time_style', 'day_names', 'week_mode', 'show_holidays' ];
 
 	/**
 	 * @param array<string, mixed> $options Overrides, see OPTION_KEYS. Extra keys: class (string), show_title (bool).
@@ -102,6 +102,9 @@ final class Renderer {
 		if ( ! in_array( $display['time_style'], Validator::TIME_STYLES, true ) ) {
 			$display['time_style'] = '24h';
 		}
+		if ( ! in_array( $display['day_names'], Validator::DAY_NAMES, true ) ) {
+			$display['day_names'] = 'auto';
+		}
 		if ( ! in_array( $display['week_mode'], [ 'current', 'regular' ], true ) ) {
 			$display['week_mode'] = 'current';
 		}
@@ -145,7 +148,7 @@ final class Renderer {
 		$html = '<table class="rmd-oh__table"><tbody>';
 		foreach ( $rows as $row ) {
 			$html .= '<tr class="' . esc_attr( self::row_classes( $row, $display, $today ) ) . '">';
-			$html .= '<th scope="row" class="rmd-oh__day">' . esc_html( self::row_label( $row, $formatter ) ) . '</th>';
+			$html .= '<th scope="row" class="rmd-oh__day">' . esc_html( self::row_label( $row, $formatter, $display ) ) . '</th>';
 			$html .= '<td class="rmd-oh__hours">' . self::hours_cell( $row, $formatter, $display ) . '</td>';
 			$html .= '</tr>';
 		}
@@ -157,7 +160,7 @@ final class Renderer {
 		foreach ( $rows as $row ) {
 			$classes = self::row_classes( $row, $display, $today );
 			$html   .= '<div class="' . esc_attr( $classes ) . '">';
-			$html   .= '<dt class="rmd-oh__day">' . esc_html( self::row_label( $row, $formatter ) ) . '</dt>';
+			$html   .= '<dt class="rmd-oh__day">' . esc_html( self::row_label( $row, $formatter, $display ) ) . '</dt>';
 			$html   .= '<dd class="rmd-oh__hours">' . self::hours_cell( $row, $formatter, $display ) . '</dd>';
 			$html   .= '</div>';
 		}
@@ -169,7 +172,7 @@ final class Renderer {
 		foreach ( $rows as $row ) {
 			$classes = self::row_classes( $row, $display, $today );
 			$item    = '<span class="' . esc_attr( $classes ) . '">';
-			$item   .= '<span class="rmd-oh__day">' . esc_html( self::row_label( $row, $formatter ) ) . '</span> ';
+			$item   .= '<span class="rmd-oh__day">' . esc_html( self::row_label( $row, $formatter, $display ) ) . '</span> ';
 			$item   .= '<span class="rmd-oh__hours">' . self::hours_cell( $row, $formatter, $display, true ) . '</span>';
 			$item   .= '</span>';
 			$items[] = $item;
@@ -185,7 +188,7 @@ final class Renderer {
 		$html = '';
 		foreach ( $rows as $row ) {
 			$spec  = $row['spec'];
-			$label = isset( $row['label'] ) ? (string) $row['label'] : $formatter->day_range( $row['days'], false );
+			$label = self::row_label( $row, $formatter, $display );
 			$html .= '<div class="' . esc_attr( self::row_classes( $row, $display, $today ) . ' rmd-oh__group' ) . '">';
 			$html .= '<p class="rmd-oh__day"><strong>' . esc_html( $label ) . ':</strong></p>';
 			if ( $spec->is_open() ) {
@@ -226,8 +229,16 @@ final class Renderer {
 		return $html;
 	}
 
-	private static function row_label( array $row, Formatter $formatter ): string {
-		return isset( $row['label'] ) ? (string) $row['label'] : $formatter->day_range( $row['days'] );
+	/**
+	 * Day label of a row. "auto" abbreviates everywhere except in the
+	 * written-out paragraphs layout.
+	 */
+	private static function row_label( array $row, Formatter $formatter, array $display ): string {
+		if ( isset( $row['label'] ) ) {
+			return (string) $row['label'];
+		}
+		$short = 'auto' === $display['day_names'] ? 'paragraphs' !== $display['layout'] : 'short' === $display['day_names'];
+		return $formatter->day_range( $row['days'], $short );
 	}
 
 	private static function row_classes( array $row, array $display, string $today ): string {

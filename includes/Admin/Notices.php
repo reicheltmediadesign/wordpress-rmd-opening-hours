@@ -78,6 +78,7 @@ final class Notices {
 			'invalid_holiday'     => __( 'Unknown holiday; the rule was ignored.', 'rmd-opening-hours' ),
 			'invalid_layout'      => __( 'Unknown layout; the default was used.', 'rmd-opening-hours' ),
 			'invalid_time_style'  => __( 'Unknown time format; the default was used.', 'rmd-opening-hours' ),
+			'invalid_day_names'   => __( 'Unknown day name format; the default was used.', 'rmd-opening-hours' ),
 			'invalid_schema_type' => __( 'Unknown business type; “LocalBusiness” was used.', 'rmd-opening-hours' ),
 			'invalid_url'         => __( 'Invalid URL (only http and https are allowed).', 'rmd-opening-hours' ),
 			'invalid_number'      => __( 'Please enter a whole number.', 'rmd-opening-hours' ),

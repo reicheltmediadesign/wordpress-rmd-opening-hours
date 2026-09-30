@@ -142,6 +142,7 @@ final class SetMetaBox {
 			'holidays'     => $holidays,
 			'layouts'      => Labels::layouts(),
 			'timeStyles'   => Labels::time_styles(),
+			'dayNames'     => Labels::day_names(),
 			'schemaTypes'  => Validator::SCHEMA_TYPES,
 			'limits'       => [
 				'slots'   => Validator::MAX_SLOTS_PER_DAY,

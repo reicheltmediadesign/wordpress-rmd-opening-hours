@@ -16,6 +16,7 @@
 		"highlightToday": { "type": "string", "default": "" },
 		"showNotes": { "type": "string", "default": "" },
 		"timeStyle": { "type": "string", "default": "" },
+		"dayNames": { "type": "string", "default": "" },
 		"weekMode": { "type": "string", "default": "" },
 		"showHolidays": { "type": "string", "default": "" },
 		"showTitle": { "type": "boolean", "default": false },

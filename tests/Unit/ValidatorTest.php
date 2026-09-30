@@ -248,12 +248,14 @@ final class ValidatorTest extends TestCase {
 				'layout'     => 'fancy',
 				'group_days' => '0',
 				'time_style' => '12h',
+				'day_names'  => 'tiny',
 			]
 		);
-		self::assertSame( [ 'display.layout:invalid_layout' ], $this->codes( $display ) );
+		self::assertSame( [ 'display.layout:invalid_layout', 'display.day_names:invalid_day_names' ], $this->codes( $display ) );
 		self::assertSame( 'table', $display['data']['layout'] );
 		self::assertFalse( $display['data']['group_days'] );
 		self::assertSame( '12h', $display['data']['time_style'] );
+		self::assertSame( 'auto', $display['data']['day_names'] );
 
 		$schema = $validator->normalize_schema(
 			[

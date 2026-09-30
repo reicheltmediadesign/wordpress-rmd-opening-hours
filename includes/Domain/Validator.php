@@ -25,6 +25,7 @@ final class Validator {
 
 	public const LAYOUTS     = [ 'table', 'list', 'compact', 'paragraphs' ];
 	public const TIME_STYLES = [ '24h', '24h-suffix', '24h-short', '12h' ];
+	public const DAY_NAMES   = [ 'auto', 'short', 'long' ];
 
 	public const SCHEMA_TYPES = [
 		'LocalBusiness',
@@ -134,6 +135,7 @@ final class Validator {
 			'highlight_today' => true,
 			'show_notes'      => true,
 			'time_style'      => '24h',
+			'day_names'       => 'auto',
 			'week_mode'       => 'current',
 			'show_holidays'   => true,
 		];
@@ -486,6 +488,7 @@ final class Validator {
 			'highlight_today' => $this->bool( $raw['highlight_today'] ?? $defaults['highlight_today'] ),
 			'show_notes'      => $this->bool( $raw['show_notes'] ?? $defaults['show_notes'] ),
 			'time_style'      => $this->enum( (string) ( $raw['time_style'] ?? $defaults['time_style'] ), self::TIME_STYLES, $defaults['time_style'], $path . '.time_style', 'invalid_time_style' ),
+			'day_names'       => $this->enum( (string) ( $raw['day_names'] ?? $defaults['day_names'] ), self::DAY_NAMES, $defaults['day_names'], $path . '.day_names', 'invalid_day_names' ),
 			'week_mode'       => $this->enum( (string) ( $raw['week_mode'] ?? $defaults['week_mode'] ), [ 'current', 'regular' ], $defaults['week_mode'], $path . '.week_mode', 'invalid_mode' ),
 			'show_holidays'   => $this->bool( $raw['show_holidays'] ?? $defaults['show_holidays'] ),
 		];

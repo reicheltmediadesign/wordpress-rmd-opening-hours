@@ -41,7 +41,7 @@ A set holds everything for one business or department:
 | Regular hours | Weekly hours. Each day is closed, open (one or more time slots) or a text such as "by appointment". |
 | Periods | Date ranges with different hours: holidays, reduced summer hours, extended hours before Christmas. Each period has a name, an optional note and its own lead time for the notice. |
 | Holidays | Federal state, regional holidays and one rule per holiday: closed, regular hours or special hours. |
-| Display | Default layout, time format and options for this set. Blocks and shortcodes can override them. |
+| Display | Default layout, time format, day names (abbreviated “Mon” or full “Monday”) and options for this set. Blocks and shortcodes can override them. |
 | Structured data | Optional schema.org output with business type, name and URL. |
 
 Which hours apply on a given day: a **closed period** always wins, then a **public holiday** (unless its rule says "regular hours" or the period is marked "also open on public holidays"), then a **period with alternative hours**, then the **regular week**.
@@ -73,6 +73,7 @@ Which hours apply on a given day: a **closed period** always wins, then a **publ
 | `today` | `yes`, `no` – highlight today | opening hours |
 | `notes` | `yes`, `no` – show notes | opening hours |
 | `time_style` | `24h`, `24h-suffix`, `24h-short`, `12h` | opening hours |
+| `days` | `short` (Mon), `long` (Monday), `auto` (full only in the paragraphs layout) | opening hours |
 | `title` | `yes`, `no` – show the set name | opening hours |
 | `lead_days` | Number of days before a period starts; `0` = plugin setting | notice |
 | `template` | Text with placeholders `{name}`, `{start}`, `{end}`, `{hours}`, `{note}`, `{set}` | notice |

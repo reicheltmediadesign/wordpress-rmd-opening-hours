@@ -1474,8 +1474,8 @@ msgid "The hours of a set."
 msgstr "Die Zeiten eines Sets."
 
 #: includes/Admin/HelpPage.php:256
-msgid "Set, set name as heading, layout, week shown, time format, grouping, highlight today, notes. “Set default” uses the set’s display settings."
-msgstr "Set, Set-Name als Überschrift, Layout, angezeigte Woche, Zeitformat, Gruppierung, Heute hervorheben, Notizen. „Standard des Sets“ verwendet die Anzeigeeinstellungen des Sets."
+msgid "Set, set name as heading, layout, week shown, time format, day names, grouping, highlight today, notes. “Set default” uses the set’s display settings."
+msgstr "Set, Set-Name als Überschrift, Layout, angezeigte Woche, Zeitformat, Wochentage, Gruppierung, Heute hervorheben, Notizen. „Standard des Sets“ verwendet die Anzeigeeinstellungen des Sets."
 
 #: includes/Admin/HelpPage.php:257
 msgid "Opening Hours Notice"
@@ -1840,3 +1840,36 @@ msgstr "Fügen Sie die Öffnungszeiten Ihrer alten Website ein (eine kopierte Ta
 #: includes/Admin/HelpPage.php:218
 msgid "First choose what applies <strong>on all holidays</strong> (closed by default). This rule is shown as a “Public holidays” row after Sunday in the opening hours; it can be switched off under Display, per block or with holidays=\"no\" in the shortcode. Then adjust single holidays where needed; “As all holidays” means no override."
 msgstr "Legen Sie zuerst fest, was <strong>an allen Feiertagen</strong> gilt (Standard: geschlossen). Diese Regel erscheint in den Öffnungszeiten als Zeile „Feiertage“ nach dem Sonntag; sie lässt sich unter „Anzeige“, je Block oder per holidays=\"no\" im Shortcode abschalten. Passen Sie dann bei Bedarf einzelne Feiertage an; „Wie alle Feiertage“ bedeutet keine Ausnahme."
+
+#: includes/Admin/Notices.php
+msgid "Unknown day name format; the default was used."
+msgstr "Unbekanntes Format der Wochentage; der Standard wurde verwendet."
+
+#: includes/Labels.php
+#: build/admin/set-editor.js:4
+#: build/blocks/opening-hours/index.js:1
+msgid "Day names"
+msgstr "Wochentage"
+
+#: includes/Labels.php
+#: build/blocks/opening-hours/index.js:1
+msgid "By layout (full for paragraphs)"
+msgstr "Je nach Layout (ausgeschrieben bei Absätzen)"
+
+#: includes/Labels.php
+#: build/blocks/opening-hours/index.js:1
+msgid "Abbreviated (Mon)"
+msgstr "Abgekürzt (Mo.)"
+
+#: includes/Labels.php
+#: build/blocks/opening-hours/index.js:1
+msgid "Full (Monday)"
+msgstr "Ausgeschrieben (Montag)"
+
+#: includes/Admin/HelpPage.php
+msgid "<strong>Abbreviated</strong> (Mon–Fri) or <strong>full</strong> (Monday – Friday). <strong>By layout</strong> abbreviates everywhere except in the paragraphs layout."
+msgstr "<strong>Abgekürzt</strong> (Mo.–Fr.) oder <strong>ausgeschrieben</strong> (Montag – Freitag). <strong>Je nach Layout</strong> kürzt überall ab außer im Layout „Absätze“."
+
+#: includes/Admin/HelpPage.php
+msgid "abbreviated or full day names"
+msgstr "abgekürzte oder ausgeschriebene Wochentage"
