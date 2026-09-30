@@ -5,6 +5,10 @@ All notable changes to this plugin are documented here. The format follows
 
 ## [Unreleased]
 
+### Fixed
+
+- The German translation is now also used when the site language is “Deutsch (Sie)” (`de_DE_formal`); the plugin was shown in English there.
+
 ## [0.1.3] – 2026-09-27
 
 ### Added

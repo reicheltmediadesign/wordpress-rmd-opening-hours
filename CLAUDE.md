@@ -17,7 +17,7 @@ WordPress-Plugin von reichelt media.design für Kunden-Websites. Repo: `github.c
 ## Code-Regeln
 
 - PHP 8.1+, WP 6.8+. WordPress-Coding-Standards (`phpcs.xml.dist`), Methoden snake_case, Präfix `rmd_oh_` / Namespace `RMD\OpeningHours`, Textdomain `rmd-opening-hours`.
-- Quellstrings Englisch, Übersetzung in `languages/rmd-opening-hours-de_DE.po`. Neue Strings dort nachziehen (`npm run i18n` erzeugt POT/MO/JSON; braucht WP-CLI).
+- Quellstrings Englisch, Übersetzung in `languages/rmd-opening-hours-de_DE.po`. Neue Strings dort nachziehen (`npm run i18n` erzeugt POT/MO/JSON; braucht WP-CLI). Die Übersetzung siezt; `de_DE_formal` („Deutsch (Sie)“) erzeugt `make-i18n.sh` daraus (PO nicht eingecheckt) – nicht separat pflegen, Sie-Form beibehalten.
 - Sicherheit: jede Schreiboperation prüft Nonce + `manage_opening_hours`; Ausgabe escapen; REST nur lesend; keine externen Aufrufe außer Update-Check.
 - Version an vier Stellen: Plugin-Header, `RMD_OH_VERSION`, `package.json`, `readme.txt` (Stable tag) und `src/blocks/*/block.json`. `bash bin/check-version.sh` prüft das.
 - `RMD_OH_FAKE_NOW` (nur mit `WP_DEBUG`) in `wp-config.php` erlaubt Zeitreisen zum Testen.
