@@ -1,9 +1,11 @@
 # Links this checkout into a local WordPress install for testing.
-# Usage: .\bin\link-local.ps1 [-WordPressPath "C:\xampp\htdocs\site"] [-Copy]
+# Usage: .\bin\link-local.ps1 -WordPressPath "C:\xampp\htdocs\site" [-Copy]
 #   default: junction wp-content\plugins\rmd-opening-hours -> this repo
 #   -Copy:   robocopy mirror instead of a junction (if WordPress misbehaves with links)
+# Only link into a dedicated test site: customer sites get the release zip instead.
 param(
-	[string]$WordPressPath = "C:\xampp\htdocs\marlen-in-flow.de",
+	[Parameter(Mandatory = $true)]
+	[string]$WordPressPath,
 	[switch]$Copy
 )
 

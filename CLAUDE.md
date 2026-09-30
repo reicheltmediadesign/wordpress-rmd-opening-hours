@@ -33,7 +33,7 @@ npm run i18n           # Übersetzungen (WP-CLI nötig)
 npm run zip            # dist/rmd-opening-hours.zip (Git Bash: rsync, zip, composer nötig)
 ```
 
-Lokal testen: `.\bin\link-local.ps1` legt eine Junction in `wp-content\plugins` an (Standard: marlen-in-flow.de). Danach Plugin aktivieren; Blocks brauchen einen vorherigen `npm run build`.
+Lokal testen: `.\bin\link-local.ps1 -WordPressPath "C:\xampp\htdocs\<testseite>"` legt eine Junction in `wp-content\plugins` an. Danach Plugin aktivieren; Blocks brauchen einen vorherigen `npm run build`. Nur in eine eigene Testseite verlinken, nie in Kundenseiten (z. B. marleninflow.de) – dort das Release-Zip installieren. Aktuell gibt es keine Testseite; bei Bedarf eine anlegen.
 
 ## Git und Release
 
