@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# Regenerates the POT file, updates the German PO and compiles MO/PHP/JSON
+# Regenerates the POT file, updates the German PO (and derives the formal
+# German PO from it) and compiles MO/PHP/JSON
 # files. Requires WP-CLI (wp) with the i18n command; run after `npm run build`
 # because JS strings are extracted from build/ so the JSON file names match
 # the script paths WordPress looks up.
@@ -19,6 +20,11 @@ domain="rmd-opening-hours"
 
 if [ -f "languages/$domain-de_DE.po" ]; then
 	"$wp_bin" i18n update-po "languages/$domain.pot" "languages/$domain-de_DE.po"
+
+	# The German translation already uses the formal "Sie", so "Deutsch (Sie)"
+	# (de_DE_formal) is derived from it instead of being maintained separately.
+	sed 's/^"Language: de_DE/&_formal/' \
+		"languages/$domain-de_DE.po" > "languages/$domain-de_DE_formal.po"
 fi
 
 "$wp_bin" i18n make-mo languages

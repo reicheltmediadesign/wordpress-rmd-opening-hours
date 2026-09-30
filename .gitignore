@@ -10,6 +10,9 @@ languages/*.mo
 languages/*.l10n.php
 languages/*.json
 
+# Derived from the de_DE PO by bin/make-i18n.sh
+languages/*-de_DE_formal.po
+
 .DS_Store
 .vscode/
 .idea/
