@@ -80,6 +80,7 @@ final class Blocks {
 				'highlight_today' => self::tri_state( $attributes['highlightToday'] ?? '' ),
 				'show_notes'      => self::tri_state( $attributes['showNotes'] ?? '' ),
 				'time_style'      => (string) ( $attributes['timeStyle'] ?? '' ),
+				'day_names'       => (string) ( $attributes['dayNames'] ?? '' ),
 				'week_mode'       => (string) ( $attributes['weekMode'] ?? '' ),
 				'show_holidays'   => self::tri_state( $attributes['showHolidays'] ?? '' ),
 				'show_title'      => ! empty( $attributes['showTitle'] ),

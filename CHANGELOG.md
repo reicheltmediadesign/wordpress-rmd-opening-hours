@@ -5,6 +5,10 @@ All notable changes to this plugin are documented here. The format follows
 
 ## [Unreleased]
 
+### Added
+
+- **Day names** option in the Display tab, the block (“Day names”) and the shortcode (`days="short"` / `days="long"`): abbreviated (“Mon”) or full (“Monday”). The default “By layout” keeps the previous behaviour (full names only in the paragraphs layout).
+
 ## [0.1.4] – 2026-09-30
 
 ### Fixed

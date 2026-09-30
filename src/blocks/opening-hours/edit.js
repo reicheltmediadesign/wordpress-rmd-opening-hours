@@ -36,6 +36,16 @@ const TIME_STYLES = [
 	},
 ];
 
+const DAY_NAMES = [
+	{ value: '', label: __( 'Set default', 'rmd-opening-hours' ) },
+	{
+		value: 'auto',
+		label: __( 'By layout (full for paragraphs)', 'rmd-opening-hours' ),
+	},
+	{ value: 'short', label: __( 'Abbreviated (Mon)', 'rmd-opening-hours' ) },
+	{ value: 'long', label: __( 'Full (Monday)', 'rmd-opening-hours' ) },
+];
+
 const WEEK_MODES = [
 	{ value: '', label: __( 'Set default', 'rmd-opening-hours' ) },
 	{
@@ -102,6 +112,16 @@ export default function Edit( { attributes, setAttributes } ) {
 						options={ TIME_STYLES }
 						onChange={ ( timeStyle ) =>
 							setAttributes( { timeStyle } )
+						}
+						__nextHasNoMarginBottom
+						__next40pxDefaultSize
+					/>
+					<SelectControl
+						label={ __( 'Day names', 'rmd-opening-hours' ) }
+						value={ attributes.dayNames }
+						options={ DAY_NAMES }
+						onChange={ ( dayNames ) =>
+							setAttributes( { dayNames } )
 						}
 						__nextHasNoMarginBottom
 						__next40pxDefaultSize

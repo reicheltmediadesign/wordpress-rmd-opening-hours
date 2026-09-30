@@ -35,6 +35,14 @@ export default function DisplayPanel( { config, value, onChange } ) {
 					__next40pxDefaultSize
 				/>
 				<SelectControl
+					label={ __( 'Day names', 'rmd-opening-hours' ) }
+					value={ value.day_names }
+					options={ toOptions( config.dayNames ) }
+					onChange={ ( next ) => set( { day_names: next } ) }
+					__nextHasNoMarginBottom
+					__next40pxDefaultSize
+				/>
+				<SelectControl
 					label={ __( 'Week shown', 'rmd-opening-hours' ) }
 					value={ value.week_mode }
 					options={ [

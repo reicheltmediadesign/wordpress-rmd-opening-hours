@@ -111,4 +111,15 @@ final class Labels {
 			'12h'        => __( '12-hour (9:00 am–6:00 pm)', 'rmd-opening-hours' ),
 		];
 	}
+
+	/**
+	 * @return array<string, string>
+	 */
+	public static function day_names(): array {
+		return [
+			'auto'  => __( 'By layout (full for paragraphs)', 'rmd-opening-hours' ),
+			'short' => __( 'Abbreviated (Mon)', 'rmd-opening-hours' ),
+			'long'  => __( 'Full (Monday)', 'rmd-opening-hours' ),
+		];
+	}
 }

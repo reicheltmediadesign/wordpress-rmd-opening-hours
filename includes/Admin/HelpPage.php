@@ -234,6 +234,7 @@ final class HelpPage {
 			[
 				[ __( 'Layout', 'rmd-opening-hours' ), __( '<strong>Table</strong> – one row per day (group), best for sidebars and contact pages. <strong>List</strong> – definition list with the same content, useful when tables look heavy in your theme. <strong>Compact</strong> – everything in a single line, e.g. “Mon–Fri 9–18 h · Sat 9–12 h”, for footers. <strong>Paragraphs</strong> – written out with full day names in bold, one line per time slot and the note below, e.g. for contact pages.', 'rmd-opening-hours' ) ],
 				[ __( 'Time format', 'rmd-opening-hours' ), __( '24-hour (09:00–18:00), 24-hour with unit (08:00 – 12:00 h), short 24-hour (9–18 h, minutes only when needed) or 12-hour (9:00 am–6:00 pm).', 'rmd-opening-hours' ) ],
+				[ __( 'Day names', 'rmd-opening-hours' ), __( '<strong>Abbreviated</strong> (Mon–Fri) or <strong>full</strong> (Monday – Friday). <strong>By layout</strong> abbreviates everywhere except in the paragraphs layout.', 'rmd-opening-hours' ) ],
 				[ __( 'Week shown', 'rmd-opening-hours' ), __( '<strong>Current week</strong> shows Monday to Sunday of this week with holidays and periods already applied, so a visitor sees what really applies. <strong>Regular hours only</strong> always shows the plain weekly schedule; combine it with the notice block to announce deviations.', 'rmd-opening-hours' ) ],
 				[ __( 'Group days with equal hours', 'rmd-opening-hours' ), __( 'Merges consecutive days with identical hours into one row, e.g. “Mon–Fri”. Days that differ (a holiday, a note) start a new row.', 'rmd-opening-hours' ) ],
 				[ __( 'Highlight today', 'rmd-opening-hours' ), __( 'Marks today’s row so it can be styled (bold background by default).', 'rmd-opening-hours' ) ],
@@ -253,7 +254,7 @@ final class HelpPage {
 		self::table(
 			[ __( 'Block', 'rmd-opening-hours' ), __( 'Shows', 'rmd-opening-hours' ), __( 'Options', 'rmd-opening-hours' ) ],
 			[
-				[ __( 'Opening Hours', 'rmd-opening-hours' ), __( 'The hours of a set.', 'rmd-opening-hours' ), __( 'Set, set name as heading, layout, week shown, time format, grouping, highlight today, notes. “Set default” uses the set’s display settings.', 'rmd-opening-hours' ) ],
+				[ __( 'Opening Hours', 'rmd-opening-hours' ), __( 'The hours of a set.', 'rmd-opening-hours' ), __( 'Set, set name as heading, layout, week shown, time format, day names, grouping, highlight today, notes. “Set default” uses the set’s display settings.', 'rmd-opening-hours' ) ],
 				[ __( 'Opening Hours Notice', 'rmd-opening-hours' ), __( 'Announcements for upcoming and running periods. Empty when nothing is due.', 'rmd-opening-hours' ), __( 'Set (or all sets), lead time, dismissible, own text template.', 'rmd-opening-hours' ) ],
 				[ __( 'Open Now Status', 'rmd-opening-hours' ), __( '“Open now · closes at 18:00” or “Closed now · opens tomorrow at 09:00”, updated live in the visitor’s browser.', 'rmd-opening-hours' ), __( 'Set, show next opening/closing time.', 'rmd-opening-hours' ) ],
 			]
@@ -278,6 +279,7 @@ final class HelpPage {
 				[ '<code>today</code>', '<code>yes</code>, <code>no</code> – ' . __( 'highlight today', 'rmd-opening-hours' ), 'rmd_opening_hours' ],
 				[ '<code>notes</code>', '<code>yes</code>, <code>no</code> – ' . __( 'show notes', 'rmd-opening-hours' ), 'rmd_opening_hours' ],
 				[ '<code>time_style</code>', '<code>24h</code>, <code>24h-short</code>, <code>12h</code>', 'rmd_opening_hours' ],
+				[ '<code>days</code>', '<code>short</code>, <code>long</code>, <code>auto</code> – ' . __( 'abbreviated or full day names', 'rmd-opening-hours' ), 'rmd_opening_hours' ],
 				[ '<code>title</code>', '<code>yes</code>, <code>no</code> – ' . __( 'show the set name as heading', 'rmd-opening-hours' ), 'rmd_opening_hours' ],
 				[ '<code>lead_days</code>', __( 'Days before a period starts; <code>0</code> = plugin setting', 'rmd-opening-hours' ), 'rmd_opening_hours_notice' ],
 				[ '<code>template</code>', __( 'Own text with placeholders, see below', 'rmd-opening-hours' ), 'rmd_opening_hours_notice' ],
