@@ -251,6 +251,7 @@ final class ValidatorTest extends TestCase {
 				'group_days' => '0',
 				'time_style' => '12h',
 				'day_names'  => 'tiny',
+				'remark'     => "  <b>and by</b>\n appointment ",
 			]
 		);
 		self::assertSame( [ 'display.layout:invalid_layout', 'display.day_names:invalid_day_names' ], $this->codes( $display ) );
@@ -258,6 +259,10 @@ final class ValidatorTest extends TestCase {
 		self::assertFalse( $display['data']['group_days'] );
 		self::assertSame( '12h', $display['data']['time_style'] );
 		self::assertSame( 'auto', $display['data']['day_names'] );
+		self::assertFalse( $display['data']['group_equal'], 'Off unless enabled.' );
+		self::assertSame( 'and by appointment', $display['data']['remark'] );
+		self::assertTrue( $validator->normalize_display( [ 'group_equal' => 'yes' ] )['data']['group_equal'] );
+		self::assertSame( '', $validator->normalize_display( [ 'remark' => [ 'x' ] ] )['data']['remark'] );
 
 		$schema = $validator->normalize_schema(
 			[

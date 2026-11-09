@@ -132,12 +132,14 @@ final class Validator {
 		return [
 			'layout'          => 'table',
 			'group_days'      => true,
+			'group_equal'     => false,
 			'highlight_today' => true,
 			'show_notes'      => true,
 			'time_style'      => '24h',
 			'day_names'       => 'auto',
 			'week_mode'       => 'current',
 			'show_holidays'   => true,
+			'remark'          => '',
 		];
 	}
 
@@ -479,12 +481,14 @@ final class Validator {
 		return [
 			'layout'          => $this->enum( (string) ( $raw['layout'] ?? $defaults['layout'] ), self::LAYOUTS, $defaults['layout'], $path . '.layout', 'invalid_layout' ),
 			'group_days'      => $this->bool( $raw['group_days'] ?? $defaults['group_days'] ),
+			'group_equal'     => $this->bool( $raw['group_equal'] ?? $defaults['group_equal'] ),
 			'highlight_today' => $this->bool( $raw['highlight_today'] ?? $defaults['highlight_today'] ),
 			'show_notes'      => $this->bool( $raw['show_notes'] ?? $defaults['show_notes'] ),
 			'time_style'      => $this->enum( (string) ( $raw['time_style'] ?? $defaults['time_style'] ), self::TIME_STYLES, $defaults['time_style'], $path . '.time_style', 'invalid_time_style' ),
 			'day_names'       => $this->enum( (string) ( $raw['day_names'] ?? $defaults['day_names'] ), self::DAY_NAMES, $defaults['day_names'], $path . '.day_names', 'invalid_day_names' ),
 			'week_mode'       => $this->enum( (string) ( $raw['week_mode'] ?? $defaults['week_mode'] ), [ 'current', 'regular' ], $defaults['week_mode'], $path . '.week_mode', 'invalid_mode' ),
 			'show_holidays'   => $this->bool( $raw['show_holidays'] ?? $defaults['show_holidays'] ),
+			'remark'          => $this->text( is_scalar( $raw['remark'] ?? null ) ? (string) $raw['remark'] : '', self::MAX_NOTE ),
 		];
 	}
 

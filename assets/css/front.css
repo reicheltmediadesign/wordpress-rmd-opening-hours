@@ -9,6 +9,7 @@
  *   .rmd-oh__title               optional set name
  *   .rmd-oh__row                 one row (.is-today, .is-closed, .is-exception, .is-holiday, .is-period)
  *   .rmd-oh__day / __hours / __slot / __closed / __note
+ *   .rmd-oh__remark              optional general remark below the hours
  *   .rmd-oh-status               open-now indicator (.is-open | .is-closed), __dot, __text
  *   .rmd-oh-notices              notice container (.has-visible)
  *   .rmd-oh-notice               one notice (.rmd-oh-notice--closed | --daily | --weekly, .is-running); unstyled by default,
@@ -96,6 +97,10 @@
 
 .rmd-oh__compact .rmd-oh__day {
 	font-weight: 600;
+}
+
+.rmd-oh__remark {
+	margin: 0.75em 0 0;
 }
 
 /* Shared row states */

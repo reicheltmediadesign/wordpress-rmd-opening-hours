@@ -1486,8 +1486,8 @@ msgid "The hours of a set."
 msgstr "Die Zeiten eines Sets."
 
 #: includes/Admin/HelpPage.php:256
-msgid "Set, set name as heading, layout, week shown, time format, day names, grouping, highlight today, notes. “Set default” uses the set’s display settings."
-msgstr "Set, Set-Name als Überschrift, Layout, angezeigte Woche, Zeitformat, Wochentage, Gruppierung, Heute hervorheben, Notizen. „Standard des Sets“ verwendet die Anzeigeeinstellungen des Sets."
+msgid "Set, set name as heading, layout, week shown, time format, day names, grouping (also of days that are not adjacent), highlight today, notes. “Set default” uses the set’s display settings. The general remark of the set is always shown below the hours."
+msgstr "Set, Set-Name als Überschrift, Layout, angezeigte Woche, Zeitformat, Wochentage, Gruppierung (auch nicht aufeinanderfolgender Tage), Heute hervorheben, Notizen. „Standard des Sets“ verwendet die Anzeigeeinstellungen des Sets. Die allgemeine Bemerkung des Sets wird immer unter den Zeiten angezeigt."
 
 #: includes/Admin/HelpPage.php:257
 msgid "Opening Hours Notice"
@@ -1541,6 +1541,32 @@ msgstr "alle"
 #: includes/Admin/HelpPage.php:277
 msgid "merge consecutive days with equal hours"
 msgstr "aufeinanderfolgende Tage mit gleichen Zeiten zusammenfassen"
+
+#: includes/Admin/HelpPage.php:280
+msgid "also merge equal days that are not adjacent (Mon, Wed)"
+msgstr "auch gleiche Tage zusammenfassen, die nicht aufeinanderfolgen (Mo, Mi)"
+
+#: build/admin/set-editor.js:4
+#: build/blocks/opening-hours/index.js:1
+msgid "Also group equal days that are not adjacent (Mon, Wed)"
+msgstr "Auch gleiche Tage gruppieren, die nicht aufeinanderfolgen (Mo, Mi)"
+
+#: includes/Admin/HelpPage.php:240
+msgid "Also group equal days that are not adjacent"
+msgstr "Auch gleiche Tage gruppieren, die nicht aufeinanderfolgen"
+
+#: includes/Admin/HelpPage.php:240
+msgid "Additionally merges days with identical hours that do not follow each other, e.g. “Mon, Wed” and “Tue, Thu”. The row appears at the position of its first day. Only available while grouping is on."
+msgstr "Fasst zusätzlich Tage mit identischen Zeiten zusammen, die nicht aufeinanderfolgen, z. B. „Mo, Mi“ und „Di, Do“. Die Zeile erscheint an der Position ihres ersten Tages. Nur verfügbar, solange das Zusammenfassen aktiv ist."
+
+#: includes/Admin/HelpPage.php:194
+#: build/admin/set-editor.js:4
+msgid "General remark"
+msgstr "Allgemeine Bemerkung"
+
+#: build/admin/set-editor.js:4
+msgid "Optional text shown below the opening hours, e.g. “and by appointment”."
+msgstr "Optionaler Text, der unter den Öffnungszeiten angezeigt wird, z. B. „und nach Vereinbarung“."
 
 #: includes/Admin/HelpPage.php:278
 msgid "highlight today"
@@ -1885,3 +1911,7 @@ msgstr "<strong>Abgekürzt</strong> (Mo.–Fr.) oder <strong>ausgeschrieben</str
 #: includes/Admin/HelpPage.php
 msgid "abbreviated or full day names"
 msgstr "abgekürzte oder ausgeschriebene Wochentage"
+
+#: includes/Admin/HelpPage.php:194
+msgid "Optional text for the whole set, e.g. “and by appointment”. It is shown below the hours wherever the set is displayed."
+msgstr "Optionaler Text für das gesamte Set, z. B. „und nach Vereinbarung“. Er wird überall, wo das Set angezeigt wird, unter den Zeiten ausgegeben."

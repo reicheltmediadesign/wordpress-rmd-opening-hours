@@ -5,6 +5,11 @@ All notable changes to this plugin are documented here. The format follows
 
 ## [Unreleased]
 
+### Added
+
+- **Group equal days that are not adjacent**: new option in the Display tab, the block and the shortcode (`group_equal="yes"`). Days with identical hours share one row even when they do not follow each other, e.g. “Mon, Wed” and “Tue, Thu”. Off by default; needs “Group days with equal hours”.
+- **General remark** per set (tab “Regular hours”), e.g. “and by appointment”. It is shown below the hours in every layout of the block and the shortcode and can be styled via `.rmd-oh__remark`.
+
 ## [0.1.6] – 2026-09-30
 
 ### Fixed

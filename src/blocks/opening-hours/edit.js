@@ -137,6 +137,16 @@ export default function Edit( { attributes, setAttributes } ) {
 						}
 					/>
 					<TriStateControl
+						label={ __(
+							'Also group equal days that are not adjacent (Mon, Wed)',
+							'rmd-opening-hours'
+						) }
+						value={ attributes.groupEqual }
+						onChange={ ( groupEqual ) =>
+							setAttributes( { groupEqual } )
+						}
+					/>
+					<TriStateControl
 						label={ __( 'Highlight today', 'rmd-opening-hours' ) }
 						value={ attributes.highlightToday }
 						onChange={ ( highlightToday ) =>

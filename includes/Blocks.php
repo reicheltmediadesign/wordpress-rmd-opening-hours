@@ -77,6 +77,7 @@ final class Blocks {
 				'block'           => true,
 				'layout'          => (string) ( $attributes['layout'] ?? '' ),
 				'group_days'      => self::tri_state( $attributes['groupDays'] ?? '' ),
+				'group_equal'     => self::tri_state( $attributes['groupEqual'] ?? '' ),
 				'highlight_today' => self::tri_state( $attributes['highlightToday'] ?? '' ),
 				'show_notes'      => self::tri_state( $attributes['showNotes'] ?? '' ),
 				'time_style'      => (string) ( $attributes['timeStyle'] ?? '' ),

@@ -38,10 +38,10 @@ A set holds everything for one business or department:
 
 | Tab | What you configure |
 | --- | --- |
-| Regular hours | Weekly hours. Each day is closed, open (one or more time slots) or a text such as "by appointment". |
+| Regular hours | Weekly hours. Each day is closed, open (one or more time slots) or a text such as "by appointment". An optional general remark (e.g. "and by appointment") is shown below the hours. |
 | Periods | Date ranges with different hours: holidays, reduced summer hours, extended hours before Christmas. Each period has a name, an optional note and its own lead time for the notice. |
 | Holidays | Federal state, regional holidays and one rule per holiday: closed, regular hours or special hours. |
-| Display | Default layout, time format, day names (abbreviated “Mon” or full “Monday”) and options for this set. Blocks and shortcodes can override them. |
+| Display | Default layout, time format, day names (abbreviated “Mon” or full “Monday”), grouping of days with equal hours (consecutive “Mon–Fri”, optionally also non-adjacent “Mon, Wed”) and options for this set. Blocks and shortcodes can override them. |
 | Structured data | Optional schema.org output with business type, name and URL. |
 
 Which hours apply on a given day: a **closed period** always wins, then a **public holiday** (unless its rule says "regular hours" or the period is marked "also open on public holidays"), then a **period with alternative hours**, then the **regular week**.
@@ -70,6 +70,7 @@ Which hours apply on a given day: a **closed period** always wins, then a **publ
 | `holidays` | `yes`, `no` – show the “Public holidays” row | opening hours |
 | `week` | `current` (with holidays and periods), `regular` | opening hours |
 | `group` | `yes`, `no` – merge consecutive days with equal hours (Mon–Fri) | opening hours |
+| `group_equal` | `yes`, `no` – also merge equal days that are not adjacent (Mon, Wed); needs grouping | opening hours |
 | `today` | `yes`, `no` – highlight today | opening hours |
 | `notes` | `yes`, `no` – show notes | opening hours |
 | `time_style` | `24h`, `24h-suffix`, `24h-short`, `12h` | opening hours |

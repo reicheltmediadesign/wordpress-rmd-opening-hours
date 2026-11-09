@@ -13,6 +13,7 @@
 		"setId": { "type": "number", "default": 0 },
 		"layout": { "type": "string", "default": "" },
 		"groupDays": { "type": "string", "default": "" },
+		"groupEqual": { "type": "string", "default": "" },
 		"highlightToday": { "type": "string", "default": "" },
 		"showNotes": { "type": "string", "default": "" },
 		"timeStyle": { "type": "string", "default": "" },

@@ -8,6 +8,7 @@
 namespace RMD\OpeningHours\Render;
 
 use DateTimeImmutable;
+use RMD\OpeningHours\Domain\Dates;
 use RMD\OpeningHours\Domain\DaySpec;
 use RMD\OpeningHours\Domain\DayResult;
 use RMD\OpeningHours\Domain\Slot;
@@ -70,27 +71,46 @@ final class Formatter {
 	}
 
 	/**
-	 * Row label for a group of days: "Mon–Fri", "Sat", or "Mon, Tue" for non-consecutive input.
+	 * Row label for a group of days: "Mon–Fri", "Sat", or "Mon, Wed" / "Mon–Tue, Thu"
+	 * when the days are not all adjacent.
 	 *
-	 * @param DayResult[] $days
+	 * @param DayResult[] $days In week order.
 	 */
 	public function day_range( array $days, bool $short = true ): string {
 		$names = Labels::weekdays();
 		$key   = $short ? 'short' : 'long';
 		$label = static fn( DayResult $day ): string => $names[ $day->weekday ][ $key ] ?? $day->weekday;
 
-		if ( 1 === count( $days ) ) {
-			return $label( $days[0] );
+		$runs = [];
+		$prev = null;
+		foreach ( array_values( $days ) as $day ) {
+			$index = array_search( $day->weekday, Dates::WEEKDAYS, true );
+			if ( null !== $prev && false !== $index && $index === $prev + 1 ) {
+				$runs[ count( $runs ) - 1 ][] = $day;
+			} else {
+				$runs[] = [ $day ];
+			}
+			$prev = false === $index ? null : $index;
 		}
-		return sprintf(
-			$short
-				/* translators: 1: first weekday, 2: last weekday (abbreviated) */
-				? _x( '%1$s–%2$s', 'weekday range', 'rmd-opening-hours' )
-				/* translators: 1: first weekday, 2: last weekday (full names) */
-				: _x( '%1$s – %2$s', 'weekday range long', 'rmd-opening-hours' ),
-			$label( $days[0] ),
-			$label( $days[ count( $days ) - 1 ] )
-		);
+
+		$parts = [];
+		foreach ( $runs as $run ) {
+			if ( 1 === count( $run ) ) {
+				$parts[] = $label( $run[0] );
+				continue;
+			}
+			$parts[] = sprintf(
+				$short
+					/* translators: 1: first weekday, 2: last weekday (abbreviated) */
+					? _x( '%1$s–%2$s', 'weekday range', 'rmd-opening-hours' )
+					/* translators: 1: first weekday, 2: last weekday (full names) */
+					: _x( '%1$s – %2$s', 'weekday range long', 'rmd-opening-hours' ),
+				$label( $run[0] ),
+				$label( $run[ count( $run ) - 1 ] )
+			);
+		}
+
+		return implode( ', ', $parts );
 	}
 
 	public function date( string $ymd, ?string $format = null ): string {
