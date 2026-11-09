@@ -191,6 +191,7 @@ final class HelpPage {
 				[ __( 'Note', 'rmd-opening-hours' ), __( 'Optional remark shown next to the hours of that day, e.g. “Emergency service only”. Notes can be hidden in the display options.', 'rmd-opening-hours' ) ],
 				[ __( 'Copy to Tue–Fri', 'rmd-opening-hours' ), __( 'Copies Monday’s entry to Tuesday through Friday to save typing.', 'rmd-opening-hours' ) ],
 				[ __( 'Import from text…', 'rmd-opening-hours' ), __( 'Paste the opening hours from your old website (a copied table, a list or a sentence such as “Dienstag, Donnerstag: 7 – 16 Uhr”). The editor recognises day names, ranges, several time slots, “geschlossen”, “nach Vereinbarung” and a holiday line, shows a preview and fills in the week. Check the result before saving.', 'rmd-opening-hours' ) ],
+				[ __( 'General remark', 'rmd-opening-hours' ), __( 'Optional text for the whole set, e.g. “and by appointment”. It is shown below the hours wherever the set is displayed.', 'rmd-opening-hours' ) ],
 			]
 		);
 	}
@@ -237,6 +238,7 @@ final class HelpPage {
 				[ __( 'Day names', 'rmd-opening-hours' ), __( '<strong>Abbreviated</strong> (Mon–Fri) or <strong>full</strong> (Monday – Friday). <strong>By layout</strong> abbreviates everywhere except in the paragraphs layout.', 'rmd-opening-hours' ) ],
 				[ __( 'Week shown', 'rmd-opening-hours' ), __( '<strong>Current week</strong> shows Monday to Sunday of this week with holidays and periods already applied, so a visitor sees what really applies. <strong>Regular hours only</strong> always shows the plain weekly schedule; combine it with the notice block to announce deviations.', 'rmd-opening-hours' ) ],
 				[ __( 'Group days with equal hours', 'rmd-opening-hours' ), __( 'Merges consecutive days with identical hours into one row, e.g. “Mon–Fri”. Days that differ (a holiday, a note) start a new row.', 'rmd-opening-hours' ) ],
+				[ __( 'Also group equal days that are not adjacent', 'rmd-opening-hours' ), __( 'Additionally merges days with identical hours that do not follow each other, e.g. “Mon, Wed” and “Tue, Thu”. The row appears at the position of its first day. Only available while grouping is on.', 'rmd-opening-hours' ) ],
 				[ __( 'Highlight today', 'rmd-opening-hours' ), __( 'Marks today’s row so it can be styled (bold background by default).', 'rmd-opening-hours' ) ],
 				[ __( 'Show notes', 'rmd-opening-hours' ), __( 'Shows the notes of days, periods and holiday names below the hours.', 'rmd-opening-hours' ) ],
 			]
@@ -254,7 +256,7 @@ final class HelpPage {
 		self::table(
 			[ __( 'Block', 'rmd-opening-hours' ), __( 'Shows', 'rmd-opening-hours' ), __( 'Options', 'rmd-opening-hours' ) ],
 			[
-				[ __( 'Opening Hours', 'rmd-opening-hours' ), __( 'The hours of a set.', 'rmd-opening-hours' ), __( 'Set, set name as heading, layout, week shown, time format, day names, grouping, highlight today, notes. “Set default” uses the set’s display settings.', 'rmd-opening-hours' ) ],
+				[ __( 'Opening Hours', 'rmd-opening-hours' ), __( 'The hours of a set.', 'rmd-opening-hours' ), __( 'Set, set name as heading, layout, week shown, time format, day names, grouping (also of days that are not adjacent), highlight today, notes. “Set default” uses the set’s display settings. The general remark of the set is always shown below the hours.', 'rmd-opening-hours' ) ],
 				[ __( 'Opening Hours Notice', 'rmd-opening-hours' ), __( 'Announcements for upcoming and running periods. Empty when nothing is due.', 'rmd-opening-hours' ), __( 'Set (or all sets), lead time, dismissible, own text template.', 'rmd-opening-hours' ) ],
 				[ __( 'Open Now Status', 'rmd-opening-hours' ), __( '“Open now · closes at 18:00” or “Closed now · opens tomorrow at 09:00”, updated live in the visitor’s browser.', 'rmd-opening-hours' ), __( 'Set, show next opening/closing time.', 'rmd-opening-hours' ) ],
 			]
@@ -276,6 +278,7 @@ final class HelpPage {
 				[ '<code>layout</code>', '<code>table</code>, <code>list</code>, <code>compact</code>', 'rmd_opening_hours' ],
 				[ '<code>week</code>', '<code>current</code>, <code>regular</code>', 'rmd_opening_hours' ],
 				[ '<code>group</code>', '<code>yes</code>, <code>no</code> – ' . __( 'merge consecutive days with equal hours', 'rmd-opening-hours' ), 'rmd_opening_hours' ],
+				[ '<code>group_equal</code>', '<code>yes</code>, <code>no</code> – ' . __( 'also merge equal days that are not adjacent (Mon, Wed)', 'rmd-opening-hours' ), 'rmd_opening_hours' ],
 				[ '<code>today</code>', '<code>yes</code>, <code>no</code> – ' . __( 'highlight today', 'rmd-opening-hours' ), 'rmd_opening_hours' ],
 				[ '<code>notes</code>', '<code>yes</code>, <code>no</code> – ' . __( 'show notes', 'rmd-opening-hours' ), 'rmd_opening_hours' ],
 				[ '<code>time_style</code>', '<code>24h</code>, <code>24h-short</code>, <code>12h</code>', 'rmd_opening_hours' ],

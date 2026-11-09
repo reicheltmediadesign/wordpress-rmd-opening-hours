@@ -77,6 +77,16 @@ export default function DisplayPanel( { config, value, onChange } ) {
 					__nextHasNoMarginBottom
 				/>
 				<ToggleControl
+					label={ __(
+						'Also group equal days that are not adjacent (Mon, Wed)',
+						'rmd-opening-hours'
+					) }
+					checked={ !! value.group_days && !! value.group_equal }
+					disabled={ ! value.group_days }
+					onChange={ ( next ) => set( { group_equal: next } ) }
+					__nextHasNoMarginBottom
+				/>
+				<ToggleControl
 					label={ __( 'Highlight today', 'rmd-opening-hours' ) }
 					checked={ !! value.highlight_today }
 					onChange={ ( next ) => set( { highlight_today: next } ) }

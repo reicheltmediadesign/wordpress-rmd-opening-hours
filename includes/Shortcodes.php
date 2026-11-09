@@ -2,7 +2,7 @@
 /**
  * Shortcodes mirroring the three blocks.
  *
- * [rmd_opening_hours set="shop" layout="table|list|compact" group="yes|no" today="yes|no" notes="yes|no" time_style="24h|24h-short|12h" week="current|regular" holidays="yes|no" title="yes|no" class=""]
+ * [rmd_opening_hours set="shop" layout="table|list|compact" group="yes|no" group_equal="yes|no" today="yes|no" notes="yes|no" time_style="24h|24h-short|12h" week="current|regular" holidays="yes|no" title="yes|no" class=""]
  * [rmd_opening_hours_notice set="shop|all" lead_days="7" template="" dismissible="yes|no" class=""]
  * [rmd_opening_hours_status set="shop" next="yes|no" class=""]
  *
@@ -36,17 +36,18 @@ final class Shortcodes {
 	public static function hours( $atts ): string {
 		$atts = shortcode_atts(
 			[
-				'set'        => '',
-				'layout'     => '',
-				'group'      => '',
-				'today'      => '',
-				'notes'      => '',
-				'time_style' => '',
-				'days'       => '',
-				'week'       => '',
-				'holidays'   => '',
-				'title'      => 'no',
-				'class'      => '',
+				'set'         => '',
+				'layout'      => '',
+				'group'       => '',
+				'group_equal' => '',
+				'today'       => '',
+				'notes'       => '',
+				'time_style'  => '',
+				'days'        => '',
+				'week'        => '',
+				'holidays'    => '',
+				'title'       => 'no',
+				'class'       => '',
 			],
 			is_array( $atts ) ? $atts : [],
 			'rmd_opening_hours'
@@ -62,6 +63,7 @@ final class Shortcodes {
 			[
 				'layout'          => sanitize_key( $atts['layout'] ),
 				'group_days'      => $atts['group'],
+				'group_equal'     => $atts['group_equal'],
 				'highlight_today' => $atts['today'],
 				'show_notes'      => $atts['notes'],
 				'time_style'      => sanitize_key( $atts['time_style'] ),

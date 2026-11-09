@@ -28,6 +28,50 @@ final class GrouperTest extends TestCase {
 		self::assertCount( 7, $rows );
 	}
 
+	public function test_merges_equal_days_that_are_not_adjacent(): void {
+		$long  = [
+			'mode'  => 'open',
+			'slots' => [
+				[
+					'start' => '08:00',
+					'end'   => '18:00',
+				],
+			],
+		];
+		$short = [
+			'mode'  => 'open',
+			'slots' => [
+				[
+					'start' => '08:00',
+					'end'   => '12:00',
+				],
+			],
+		];
+		$set   = SetFactory::shop(
+			[
+				'regular' => [
+					'mon' => $long,
+					'tue' => $short,
+					'wed' => $long,
+					'thu' => $short,
+					'fri' => [ 'mode' => 'closed' ],
+					'sat' => [ 'mode' => 'closed' ],
+				],
+			]
+		);
+		$week  = Schedule::regular_week( $set );
+
+		self::assertSame( [ 'mon', 'tue', 'wed', 'thu', 'fri,sat,sun' ], $this->labels( Grouper::group( $week ) ) );
+		self::assertSame( [ 'mon,wed', 'tue,thu', 'fri,sat,sun' ], $this->labels( Grouper::group( $week, true, true ) ) );
+		self::assertCount( 7, Grouper::group( $week, false, true ), 'Needs grouping to be enabled.' );
+	}
+
+	public function test_equal_merge_keeps_exceptions_apart(): void {
+		$week = Schedule::week_of( SetFactory::shop(), '2026-05-11' ); // Thursday 2026-05-14 is Ascension Day.
+
+		self::assertSame( [ 'mon,tue,wed,fri', 'thu', 'sat', 'sun' ], $this->labels( Grouper::group( $week, true, true ) ) );
+	}
+
 	public function test_holiday_breaks_a_group(): void {
 		$week = Schedule::week_of( SetFactory::shop(), '2026-10-01' ); // Contains 2026-10-03 (Saturday, holiday).
 		$rows = Grouper::group( $week );

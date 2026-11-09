@@ -25,7 +25,7 @@ final class Renderer {
 	 * Display options accepted from blocks and shortcodes. Values of "" or
 	 * "default" fall back to the set's own display settings.
 	 */
-	public const OPTION_KEYS = [ 'layout', 'group_days', 'highlight_today', 'show_notes', 'time_style', 'day_names', 'week_mode', 'show_holidays' ];
+	public const OPTION_KEYS = [ 'layout', 'group_days', 'group_equal', 'highlight_today', 'show_notes', 'time_style', 'day_names', 'week_mode', 'show_holidays' ];
 
 	/**
 	 * @param array<string, mixed> $options Overrides, see OPTION_KEYS. Extra keys: class (string), show_title (bool).
@@ -35,7 +35,7 @@ final class Renderer {
 		$today   = Clock::today();
 
 		$days = 'regular' === $display['week_mode'] ? Schedule::regular_week( $set ) : Schedule::week_of( $set, $today );
-		$rows = Grouper::group( $days, (bool) $display['group_days'] );
+		$rows = Grouper::group( $days, (bool) $display['group_days'], (bool) $display['group_equal'] );
 
 		// Generic "Public holidays" row after Sunday, unless holidays simply follow the regular hours.
 		$holiday_spec = $set->holidays->default_spec();
@@ -68,6 +68,11 @@ final class Renderer {
 			default      => self::table( $rows, $formatter, $display, $today ),
 		};
 
+		$remark = trim( (string) $display['remark'] );
+		if ( '' !== $remark ) {
+			$html .= '<p class="rmd-oh__remark">' . esc_html( $remark ) . '</p>';
+		}
+
 		$html .= '</div>';
 
 		Assets::enqueue_front();
@@ -89,7 +94,7 @@ final class Renderer {
 			if ( null === $value || '' === $value || 'default' === $value ) {
 				continue;
 			}
-			if ( in_array( $key, [ 'group_days', 'highlight_today', 'show_notes', 'show_holidays' ], true ) ) {
+			if ( in_array( $key, [ 'group_days', 'group_equal', 'highlight_today', 'show_notes', 'show_holidays' ], true ) ) {
 				$display[ $key ] = self::to_bool( $value );
 			} else {
 				$display[ $key ] = (string) $value;

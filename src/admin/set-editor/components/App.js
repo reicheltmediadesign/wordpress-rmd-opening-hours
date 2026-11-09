@@ -1,6 +1,6 @@
 import { __ } from '@wordpress/i18n';
 import { useEffect, useMemo, useState } from '@wordpress/element';
-import { TabPanel } from '@wordpress/components';
+import { TabPanel, TextControl } from '@wordpress/components';
 
 import { normalizeSet } from '../model';
 import WeekEditor from './WeekEditor';
@@ -107,6 +107,30 @@ export default function App( { config, initial, onChange } ) {
 												: prev.holidays,
 										} ) )
 									}
+								/>
+								<TextControl
+									className="rmd-oh-remark"
+									label={ __(
+										'General remark',
+										'rmd-opening-hours'
+									) }
+									help={ __(
+										'Optional text shown below the opening hours, e.g. “and by appointment”.',
+										'rmd-opening-hours'
+									) }
+									value={ data.display.remark || '' }
+									maxLength={ 500 }
+									onChange={ ( remark ) =>
+										setData( ( prev ) => ( {
+											...prev,
+											display: {
+												...prev.display,
+												remark,
+											},
+										} ) )
+									}
+									__nextHasNoMarginBottom
+									__next40pxDefaultSize
 								/>
 							</>
 						);
